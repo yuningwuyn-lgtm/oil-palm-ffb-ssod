@@ -1,0 +1,8 @@
+﻿stage,evaluated_classes,ignored_classes,images,precision,recall,map50,map5095,model_path,dataset_root,class_id,class_name,gt_boxes,precision_at_50,recall_at_50,ap50,ap50_95
+external_preprocessed_ffb_masked_4class,"abnormal,ripe,under_ripe,unripe","empty,overripe",361,0.04998768145735603,0.8935426398371062,0.7241548080983155,0.4857053476479183,<LOCAL_EXPERIMENT_PATH>,<LOCAL_PROJECT_PATH>,,macro,528,0.049988,0.893543,0.724155,0.485705
+,,,,,,,,,,0,abnormal,28,0.018182,1.000000,0.684524,0.385968
+,,,,,,,,,,3,ripe,68,0.087479,0.750000,0.633238,0.446977
+,,,,,,,,,,4,under_ripe,69,0.052233,0.898551,0.752781,0.535172
+,,,,,,,,,,5,unripe,363,0.042058,0.925620,0.826076,0.574705
+
+

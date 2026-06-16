@@ -1,0 +1,63 @@
+﻿project:
+  title: "Quality-controlled semi-supervised YOLOv8 framework for cross-domain oil palm FFB maturity detection"
+  short_title: "Cross-domain SSOD for oil palm FFB maturity"
+  output_root: "outputs/paper_framework"
+
+datasets:
+  in_domain_sciencedb: "PATH/TO/SCIENCEDB_OR_OILPALM_DATASET"
+  external_preprocessed_ffb: "PATH/TO/PREPROCESSED_FFB_YOLO_DATASET"
+  unlabeled_new_images: "PATH/TO/UNLABELED_OR_WEAKLY_LABELED_IMAGES"
+
+classes:
+  canonical:
+    0: abnormal
+    1: empty
+    2: overripe
+    3: ripe
+    4: under_ripe
+    5: unripe
+  external_preprocessed_ffb_eval:
+    include: [abnormal, ripe, under_ripe, unripe]
+    ignore: [empty, overripe]
+    reason: "preprocessed-ffb does not annotate empty or overripe."
+
+protocol:
+  random_split:
+    role: "in-domain reference only"
+    main_conclusion: false
+  scene_disjoint:
+    role: "main in-domain evaluation"
+    main_conclusion: true
+    val_groups: ""
+    test_groups: ""
+  external_domain:
+    role: "main cross-domain evaluation"
+    main_conclusion: true
+  duplicate_check:
+    normalized_base_filename: true
+    perceptual_hash: false
+    phash_hamming_threshold: 5
+
+model:
+  base_model: "yolov8n.pt"
+  baseline_model_path: "PATH/TO/baseline_best.pt"
+  teacher_model: "PATH/TO/teacher_best.pt"
+  imgsz: 640
+  batch: 8
+  max_epochs: 10
+  model2_adaptation_epochs: 3
+  device: "0"
+
+self_training:
+  iterations: 1
+  scene_quota_per_iteration: 250
+  max_pseudo_images_per_class: 200
+  quality_threshold: 0.72
+  base_conf_threshold: 0.55
+  min_conf_threshold: 0.40
+  max_conf_threshold: 0.85
+  target_map: 0.90
+  consistency_iou: 0.60
+  min_consistency_support: 2
+  num_aug_views: 4
+

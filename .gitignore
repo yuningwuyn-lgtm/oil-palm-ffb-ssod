@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+
+# Training outputs and local experiments
+runs/
+exp*/
+predict*/
+paper_framework/
+paper_*_formal/
+cleanup_archive*/
+teacher_report_package*/
+advisor_review_package*/
+dataset_diagnostics/
+
+# Datasets and generated dataset copies
+datasets/
+data/
+new_images/
+combined_dataset/
+prepared_*/
+*_prepared/
+*_dataset/
+*.cache
+
+# Model weights and large binaries
+*.pt
+*.onnx
+*.engine
+*.tflite
+*.pb
+*.zip
+*.rar
+*.7z
+*.mp4
+*.avi
+*.mov
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# OS files
+Thumbs.db
+.DS_Store

@@ -1,0 +1,21 @@
+﻿{
+  "protocol": "locked_external_posthoc_error_analysis_no_retuning",
+  "model": "LOCAL_DATA_ROOT\\paper_precision_first_ssod_formal\\seed_2026\\strict_ssod_no_relabel\\runs\\self_train_iter_1\\weights\\best.pt",
+  "dataset_root": "LOCAL_PROJECT_ROOT\\paper_framework\\datasets\\protocol_repair_v2\\external_preprocessed_ffb_calibration_locked",
+  "threshold_source": "LOCAL_PROJECT_ROOT\\paper_framework\\reports\\precision_first_ssod_formal\\seed_2026\\locked_external\\locked_external_protocol_summary.json",
+  "classwise_thresholds": {
+    "0": 0.35,
+    "3": 0.7,
+    "4": 0.85,
+    "5": 0.35
+  },
+  "under_ripe_error_counts": {
+    "under_ripe_false_negative": 48,
+    "under_ripe_misclassified": 5
+  },
+  "saved_examples": {
+    "under_ripe_false_negative": 20,
+    "under_ripe_misclassified": 5
+  }
+}
+

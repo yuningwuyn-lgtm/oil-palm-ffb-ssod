@@ -1,0 +1,21 @@
+﻿{
+  "protocol": "locked_external_posthoc_error_analysis_no_retuning",
+  "model": "LOCAL_DATA_ROOT\\paper_protocol_v2_formal\\seed_2026\\model2_balanced\\runs\\formal_train\\weights\\best.pt",
+  "dataset_root": "LOCAL_PROJECT_ROOT\\paper_framework\\datasets\\protocol_repair_v2\\external_preprocessed_ffb_calibration_locked",
+  "threshold_source": "LOCAL_PROJECT_ROOT\\paper_framework\\reports\\protocol_v2_formal\\seed_2026\\model2_balanced\\locked_external\\locked_external_protocol_summary.json",
+  "classwise_thresholds": {
+    "0": 0.35,
+    "3": 0.55,
+    "4": 0.8,
+    "5": 0.35
+  },
+  "under_ripe_error_counts": {
+    "under_ripe_false_negative": 24,
+    "under_ripe_misclassified": 8
+  },
+  "saved_examples": {
+    "under_ripe_false_negative": 20,
+    "under_ripe_misclassified": 8
+  }
+}
+
