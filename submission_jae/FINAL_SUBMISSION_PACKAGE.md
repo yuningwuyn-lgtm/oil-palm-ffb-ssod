@@ -11,6 +11,7 @@ Use this file as the submission checklist when uploading to the Journal of Agric
 | Comments to the Editor | `submission_jae/editor_comments.md` | Copy into the "Comments to the Editor" field. This file includes the suggested reviewers. |
 | Suggested reviewers | `submission_jae/suggested_reviewers_template.csv` | Use as backup if the system asks for reviewer information in separate fields. |
 | Repository link | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod` | Add in the code availability / comments field if requested. |
+| Artifact checksum | `submission_jae/ARTIFACT_CHECKSUMS.md` | Use locally to confirm that the uploaded manuscript PDF matches the validated version. |
 
 ## Main Manuscript Claims to Preserve
 
@@ -32,6 +33,7 @@ Use this file as the submission checklist when uploading to the Journal of Agric
 - Total tables and figures: 10.
 - Tables and figures are placed at the end.
 - Public code repository is available.
+- GitHub Actions submission-package validation passes on `main`.
 - Suggested reviewers: 4.
 
 ## Manual Check During Submission

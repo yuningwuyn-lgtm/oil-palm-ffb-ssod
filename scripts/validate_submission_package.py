@@ -8,6 +8,7 @@ metadata, selected repository hygiene, and Python syntax.
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import re
 import subprocess
@@ -39,6 +40,7 @@ def check_required_files() -> None:
         "submission_jae/cover_letter.md",
         "submission_jae/editor_comments.md",
         "submission_jae/FINAL_SUBMISSION_PACKAGE.md",
+        "submission_jae/ARTIFACT_CHECKSUMS.md",
         "submission_jae/submission_checklist.md",
         "submission_jae/suggested_reviewers_template.csv",
         "submission_jae/jae_format_audit.md",
@@ -90,10 +92,22 @@ def check_manuscript_tex() -> dict[str, object]:
 
 def check_pdf() -> dict[str, object]:
     pdf_path = ROOT / "manuscript_jae/main.pdf"
+    checksum_text = read_text(ROOT / "submission_jae/ARTIFACT_CHECKSUMS.md")
+    pdf_bytes = pdf_path.read_bytes()
+    digest = hashlib.sha256(pdf_bytes).hexdigest().upper()
+    if digest not in checksum_text:
+        fail("Manuscript PDF SHA256 does not match submission checksum file")
+    if str(len(pdf_bytes)) not in checksum_text:
+        fail("Manuscript PDF size does not match submission checksum file")
     try:
         import fitz  # type: ignore
     except Exception:
-        return {"pdf_exists": pdf_path.exists(), "pdf_render_check": "skipped_no_pymupdf"}
+        return {
+            "pdf_exists": pdf_path.exists(),
+            "pdf_sha256": digest,
+            "pdf_size_bytes": len(pdf_bytes),
+            "pdf_render_check": "skipped_no_pymupdf",
+        }
 
     doc = fitz.open(pdf_path)
     blank_pages: list[int] = []
@@ -112,7 +126,13 @@ def check_pdf() -> dict[str, object]:
         fail("PDF has no pages")
     if image_pages < 1:
         fail("PDF appears to have no figure/image pages")
-    return {"pdf_pages": len(doc), "blank_like_pages": blank_pages, "image_pages": image_pages}
+    return {
+        "pdf_pages": len(doc),
+        "blank_like_pages": blank_pages,
+        "image_pages": image_pages,
+        "pdf_sha256": digest,
+        "pdf_size_bytes": len(pdf_bytes),
+    }
 
 
 def check_submission_files() -> dict[str, object]:
@@ -132,7 +152,12 @@ def check_submission_files() -> dict[str, object]:
         fail(f"Reviewer email missing or invalid for: {missing_email}")
 
     final_package = read_text(ROOT / "submission_jae/FINAL_SUBMISSION_PACKAGE.md")
-    for token in ["manuscript_jae/main.pdf", "cover_letter.md", "editor_comments.md"]:
+    for token in [
+        "manuscript_jae/main.pdf",
+        "cover_letter.md",
+        "editor_comments.md",
+        "ARTIFACT_CHECKSUMS.md",
+    ]:
         if token not in final_package:
             fail(f"Final package map missing token: {token}")
 

@@ -17,6 +17,7 @@ This checklist is based on the Journal of Agricultural Engineering submission pa
 - [x] A report manifest is included under `reports/REPORT_MANIFEST.md` to map CSV/JSON outputs to manuscript tables and interpretations.
 - [x] Editor comments are prepared under `submission_jae/editor_comments.md` for the online submission form.
 - [x] Final submission package map is prepared under `submission_jae/FINAL_SUBMISSION_PACKAGE.md`.
+- [x] Manuscript PDF checksum is recorded under `submission_jae/ARTIFACT_CHECKSUMS.md`.
 
 ## Scientific Risk Controls
 
