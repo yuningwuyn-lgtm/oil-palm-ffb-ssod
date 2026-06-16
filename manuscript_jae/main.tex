@@ -39,11 +39,11 @@ Automated oil palm fresh fruit bunch (FFB) maturity grading can support harvesti
 
 \section{Introduction}
 
-Oil palm fresh fruit bunch (FFB) maturity grading is a key operational step in plantation management and palm oil production. Harvesting unripe bunches reduces oil extraction efficiency, whereas delayed harvesting can increase overripe bunches, loose fruit loss, and quality degradation. In practice, FFB maturity is often judged manually from color, texture, and fruit detachment cues. Manual grading is inexpensive and flexible, but it is also subjective, labor-intensive, and sensitive to worker experience, illumination, occlusion, and the mixture of bunches in piles or field scenes.
+Oil palm fresh fruit bunch (FFB) maturity grading is a key operational step in plantation management and palm oil production. Harvesting unripe bunches reduces oil extraction efficiency, whereas delayed harvesting can increase overripe bunches, loose fruit loss, and quality degradation. In practice, FFB maturity is often judged manually from color, texture, and fruit detachment cues. Manual grading is inexpensive and flexible, but it is also subjective, labor-intensive, and sensitive to worker experience, illumination, occlusion, and the mixture of bunches in piles or field scenes \cite{suharjito2023dataset,omar2024outdoor}.
 
-Computer vision has therefore been widely explored for agricultural quality assessment, fruit detection, and maturity grading. Modern object detectors, especially one-stage detectors in the YOLO family, are attractive for field applications because they provide a practical compromise between accuracy and inference speed. For oil palm FFB maturity detection, a detector must localize bunches and distinguish visually similar maturity categories such as unripe, under-ripe, ripe, and overripe. This is more difficult than simple fruit presence detection because the decision boundary depends on fine color transitions, fruit surface texture, shadows, and camera exposure.
+Computer vision has therefore been widely explored for agricultural quality assessment, fruit detection, and maturity grading \cite{kamilaris2018survey,bargoti2017fruit}. Modern object detectors, especially one-stage detectors in the YOLO family, are attractive for field applications because they provide a practical compromise between accuracy and inference speed \cite{redmon2016yolo,jocher2023yolov8}. For oil palm FFB maturity detection, a detector must localize bunches and distinguish visually similar maturity categories such as unripe, under-ripe, ripe, and overripe. Previous oil palm studies have shown the feasibility of deep learning and YOLO-based approaches for FFB ripeness classification or detection \cite{suharjito2021mobile,lai2022yolov4,mansour2022object}. However, this task remains more difficult than simple fruit presence detection because the decision boundary depends on fine color transitions, fruit surface texture, shadows, and camera exposure.
 
-A major limitation of many agricultural detection studies is that the reported performance is often measured on random splits or same-source test sets. For video-frame datasets, random splitting can overestimate performance because adjacent frames from the same video, pile, lighting condition, or acquisition session may appear in both training and testing subsets. A model may therefore learn scene-specific appearance rather than robust maturity cues. When deployed on another dataset or plantation scene, performance can drop sharply. This issue is especially important for oil palm FFB maturity grading because available datasets are heterogeneous: some are collected from videos of fruit bunch piles, others from outdoor plantation scenes, and others are preprocessed into class folders or weakly labeled subsets.
+A major limitation of many agricultural detection studies is that the reported performance is often measured on random splits or same-source test sets. For video-frame datasets, random splitting can overestimate performance because adjacent frames from the same video, pile, lighting condition, or acquisition session may appear in both training and testing subsets. A model may therefore learn scene-specific appearance rather than robust maturity cues. When deployed on another dataset or plantation scene, performance can drop sharply. This issue is especially important for oil palm FFB maturity grading because available datasets are heterogeneous: some are collected from videos of fruit bunch piles \cite{suharjito2023dataset}, others from outdoor plantation scenes \cite{omar2024outdoor}, and others are preprocessed into class folders or weakly labeled subsets.
 
 This study reframes oil palm FFB maturity detection as a cross-domain agricultural engineering problem rather than a single-dataset YOLO training task. The central hypothesis is that a source-domain detector trained on video-frame data can perform well in-domain but fail on an external domain, and that this failure can be mitigated by combining target-domain adaptation with quality-controlled semi-supervised object detection (SSOD). The proposed framework is designed to be conservative: pseudo-labels are not accepted solely from high detector confidence, but must also satisfy geometry constraints, edge-contact penalties, weak class-folder consistency, multi-view augmentation consistency, and class-wise dynamic thresholds.
 
@@ -53,9 +53,9 @@ The main contributions of this work are as follows. First, a strict evaluation p
 
 \subsection{Datasets and Class Harmonization}
 
-The experimental pipeline used three dataset roles. The first was a labeled source-domain oil palm FFB dataset based mainly on ScienceDB/OILPALM-style video-frame imagery. This dataset was used to train the source-only supervised baseline and to construct a scene-disjoint split. The second was an external-domain preprocessed FFB dataset, which was used as the main target-domain dataset for cross-domain evaluation and adaptation. The third was an outdoor oil palm ripeness dataset used only for exploratory third-domain zero-shot image-level evaluation.
+The experimental pipeline used three dataset roles, summarized in Table~\ref{tab:dataset_roles}. The first was a labeled source-domain oil palm FFB dataset based mainly on ScienceDB/OILPALM-style video-frame imagery \cite{suharjito2023dataset}. This dataset was used to train the source-only supervised baseline and to construct a scene-disjoint split. The second was an external-domain preprocessed FFB dataset, which was used as the main target-domain dataset for cross-domain evaluation and adaptation. The third was an outdoor oil palm ripeness dataset used only for exploratory third-domain zero-shot image-level evaluation \cite{omar2024outdoor}.
 
-The unified class scheme contained six maturity or condition classes:
+The unified class scheme contained six maturity or condition classes (Table~\ref{tab:class_scheme}):
 \[
 \mathcal{C}=\{\text{abnormal},\text{empty},\text{overripe},\text{ripe},\text{under\_ripe},\text{unripe}\}.
 \]
@@ -81,7 +81,7 @@ Four model stages were considered during development, but the formal manuscript 
 
 For each candidate unlabeled or weakly labeled image, the teacher detector generated predictions on the original image and on augmented views. Augmentations included brightness and contrast jitter, horizontal or vertical flips, small rotations, and crop-like perturbations. Predictions from augmented views were mapped back to the original image coordinate system. A pseudo-label candidate was accepted only when boxes from the original and augmented views agreed in class and localization. The localization consistency was measured using intersection-over-union (IoU), and inconsistent predictions were rejected.
 
-This design follows the general principle of consistency regularization in semi-supervised learning: a reliable object prediction should remain stable under label-preserving image transformations. In this work, consistency was used as a filtering criterion rather than a fully online teacher-student loss, making the method easier to reproduce with standard YOLOv8 training tools.
+This design follows the general principle of consistency regularization in semi-supervised learning: a reliable object prediction should remain stable under label-preserving image transformations \cite{tarvainen2017mean,sohn2020fixmatch}. In this work, consistency was used as a filtering criterion rather than a fully online teacher-student loss, making the method easier to reproduce with standard YOLOv8 training tools. The approach is related to pseudo-label and consistency-based SSOD methods \cite{sohn2020stac,liu2021unbiased,xu2021softteacher,li2022pseco}, but it is implemented as an offline quality-control layer for an agricultural engineering workflow.
 
 \subsection{Pseudo-Label Quality Score}
 
@@ -118,23 +118,23 @@ The primary detection metrics were precision, recall, F1-score, mAP@0.5, and mAP
 
 \subsection{Domain Shift from Source-Only Training}
 
-The source-only YOLOv8n model achieved scene-disjoint source-domain mAP@0.5 of 0.5917 and mAP@0.5:0.95 of 0.5018 across three seeds. However, when evaluated on the locked external preprocessed FFB dataset, performance dropped to mAP@0.5 of 0.0372 and mAP@0.5:0.95 of 0.0130. This confirms severe cross-domain degradation. Therefore, the source-only result was used as evidence of domain shift rather than as the main baseline for claiming method improvement.
+The source-only YOLOv8n model achieved scene-disjoint source-domain mAP@0.5 of 0.5917 and mAP@0.5:0.95 of 0.5018 across three seeds (Table~\ref{tab:formal_results}). However, when evaluated on the locked external preprocessed FFB dataset, performance dropped to mAP@0.5 of 0.0372 and mAP@0.5:0.95 of 0.0130. This confirms severe cross-domain degradation. Therefore, the source-only result was used as evidence of domain shift rather than as the main baseline for claiming method improvement.
 
 The class-balanced target-domain adaptation model substantially improved external-domain performance, reaching external mAP@0.5 of 0.6973 and mAP@0.5:0.95 of 0.4758. This result demonstrates that using the external-domain training portion for adaptation can recover target-domain detection performance. It does not demonstrate zero-shot generalization, because external-domain data were used during training.
 
 \subsection{Strict SSOD and High-Precision Calibration}
 
-The precision-first strict SSOD model achieved scene-disjoint mAP@0.5 of 0.6373 and mAP@0.5:0.95 of 0.5408. Under calibrated external-domain evaluation, it achieved mAP@0.5 of 0.7240, mAP@0.5:0.95 of 0.4863, precision of 0.8753, recall of 0.5364, and F1-score of 0.6321. Compared with the class-balanced adaptation baseline, strict SSOD mainly improved the high-precision operating point rather than producing a large headline mAP improvement.
+The precision-first strict SSOD model achieved scene-disjoint mAP@0.5 of 0.6373 and mAP@0.5:0.95 of 0.5408. Under calibrated external-domain evaluation, it achieved mAP@0.5 of 0.7240, mAP@0.5:0.95 of 0.4863, precision of 0.8753, recall of 0.5364, and F1-score of 0.6321 (Table~\ref{tab:strict_ssod}; Fig.~\ref{fig:external_map}). Compared with the class-balanced adaptation baseline, strict SSOD mainly improved the high-precision operating point rather than producing a large headline mAP improvement. The calibration curve in Fig.~\ref{fig:calibration} illustrates this precision-recall trade-off.
 
 This behavior is consistent with the design of the method. Strict pseudo-label filtering and high class-wise thresholds reject uncertain detections, reducing false positives but also reducing recall. For field deployment, this may be desirable when the cost of incorrect maturity grading is high. For exhaustive counting or harvest-yield estimation, the lower recall would require further optimization.
 
 \subsection{Third-Domain Zero-Shot Image-Level Evaluation}
 
-On the outdoor third-domain dataset, the source-only model achieved image-level top-1 accuracy of 0.4632 and macro F1-score of 0.3480. Model2 Balanced improved top-1 accuracy to 0.6000 and macro F1-score to 0.4383. Strict SSOD further improved top-1 accuracy to 0.6351 but had lower macro F1-score of 0.4048. This indicates that strict SSOD improved overall image-level correctness but did not uniformly improve all classes. The third-domain dataset was relatively small, with 95 images per seed in the evaluation, so these results should be treated as exploratory evidence rather than definitive proof of generalization.
+On the outdoor third-domain dataset, the source-only model achieved image-level top-1 accuracy of 0.4632 and macro F1-score of 0.3480 (Table~\ref{tab:third_domain}). Model2 Balanced improved top-1 accuracy to 0.6000 and macro F1-score to 0.4383. Strict SSOD further improved top-1 accuracy to 0.6351 but had lower macro F1-score of 0.4048. This indicates that strict SSOD improved overall image-level correctness but did not uniformly improve all classes. The third-domain dataset was relatively small, with 95 images per seed in the evaluation, so these results should be treated as exploratory evidence rather than definitive proof of generalization.
 
 \subsection{Under-Ripe Error Analysis}
 
-Under-ripe FFB remained the most difficult category. In the seed-2026 locked external analysis, Model2 Balanced achieved under-ripe AP@0.5 of 0.7528 and AP@0.5:0.95 of 0.5352, with 24 false-negative under-ripe cases and 8 misclassified under-ripe cases. Strict SSOD achieved lower under-ripe AP@0.5 of 0.6657 and AP@0.5:0.95 of 0.4918, with 48 false negatives and 5 misclassifications. This suggests that strict filtering reduced some class confusion but also made the detector more conservative for under-ripe bunches.
+Under-ripe FFB remained the most difficult category. In the seed-2026 locked external analysis, Model2 Balanced achieved under-ripe AP@0.5 of 0.7528 and AP@0.5:0.95 of 0.5352, with 24 false-negative under-ripe cases and 8 misclassified under-ripe cases (Table~\ref{tab:under_ripe}). Strict SSOD achieved lower under-ripe AP@0.5 of 0.6657 and AP@0.5:0.95 of 0.4918, with 48 false negatives and 5 misclassifications. This suggests that strict filtering reduced some class confusion but also made the detector more conservative for under-ripe bunches. The confusion matrices in Fig.~\ref{fig:confusion_model2} and Fig.~\ref{fig:confusion_strict} show the corresponding external-domain class-level behaviour.
 
 The under-ripe limitation is technically plausible. Under-ripe bunches lie between unripe and ripe in the maturity continuum and can be visually ambiguous under different lighting conditions. Future improvements should focus on ordinal maturity modeling, targeted under-ripe positive sampling, and richer color-calibrated field data rather than only increasing the amount of pseudo-labeled data.
 
@@ -186,58 +186,72 @@ No external supporting agency was involved in this study.
 
 \begin{thebibliography}{99}
 
-\bibitem{yolov8}
-G. Jocher, A. Chaurasia, and J. Qiu, ``Ultralytics YOLOv8,'' 2023. [Online]. Available: \url{https://github.com/ultralytics/ultralytics}
+\bibitem{suharjito2023dataset}
+Suharjito, F. A. Junior, Y. P. Koeswandy, Debi, P. W. Nurhayati, M. Asrol, and Marimin, ``Annotated datasets of oil palm fruit bunch piles for ripeness grading using deep learning,'' \textit{Scientific Data}, vol. 10, article 72, 2023.
 
-\bibitem{yolo}
-J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, ``You only look once: Unified, real-time object detection,'' in \textit{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition}, 2016, pp. 779--788.
+\bibitem{omar2024outdoor}
+Z. Omar, A. P. P. Abdul Majeed, M. Rosbi, S. A. Ghazalli, and H. Selamat, ``Outdoor oil palm fruit ripeness dataset,'' \textit{Data in Brief}, vol. 55, article 110667, 2024.
 
-\bibitem{yolov3}
-J. Redmon and A. Farhadi, ``YOLOv3: An incremental improvement,'' \textit{arXiv preprint arXiv:1804.02767}, 2018.
-
-\bibitem{fasterrcnn}
-S. Ren, K. He, R. Girshick, and J. Sun, ``Faster R-CNN: Towards real-time object detection with region proposal networks,'' \textit{IEEE Transactions on Pattern Analysis and Machine Intelligence}, vol. 39, no. 6, pp. 1137--1149, 2017.
-
-\bibitem{coco}
-T.-Y. Lin et al., ``Microsoft COCO: Common objects in context,'' in \textit{European Conference on Computer Vision}, 2014, pp. 740--755.
-
-\bibitem{mean_teacher}
-A. Tarvainen and H. Valpola, ``Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results,'' in \textit{Advances in Neural Information Processing Systems}, 2017.
-
-\bibitem{fixmatch}
-K. Sohn et al., ``FixMatch: Simplifying semi-supervised learning with consistency and confidence,'' in \textit{Advances in Neural Information Processing Systems}, 2020.
-
-\bibitem{stac}
-K. Sohn et al., ``A simple semi-supervised learning framework for object detection,'' \textit{arXiv preprint arXiv:2005.04757}, 2020.
-
-\bibitem{unbiasedteacher}
-Y.-C. Liu et al., ``Unbiased teacher for semi-supervised object detection,'' in \textit{International Conference on Learning Representations}, 2021.
-
-\bibitem{softteacher}
-M. Xu et al., ``End-to-end semi-supervised object detection with soft teacher,'' in \textit{Proceedings of the IEEE/CVF International Conference on Computer Vision}, 2021.
-
-\bibitem{pseco}
-J. Li et al., ``PseCo: Pseudo labeling and consistency training for semi-supervised object detection,'' in \textit{European Conference on Computer Vision}, 2022.
-
-\bibitem{domain_adaptation_survey}
-M. Wang and W. Deng, ``Deep visual domain adaptation: A survey,'' \textit{Neurocomputing}, vol. 312, pp. 135--153, 2018.
-
-\bibitem{agriculture_detection_review}
+\bibitem{kamilaris2018survey}
 A. Kamilaris and F. X. Prenafeta-Boldu, ``Deep learning in agriculture: A survey,'' \textit{Computers and Electronics in Agriculture}, vol. 147, pp. 70--90, 2018.
 
-\bibitem{fruit_detection_review}
+\bibitem{bargoti2017fruit}
 S. Bargoti and J. Underwood, ``Deep fruit detection in orchards,'' in \textit{IEEE International Conference on Robotics and Automation}, 2017, pp. 3626--3633.
 
-\bibitem{zenodo_ffb}
-Outdoor Oil Palm Fruit Ripeness Dataset, Zenodo, 2024. doi: 10.5281/zenodo.11114885.
+\bibitem{redmon2016yolo}
+J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, ``You only look once: Unified, real-time object detection,'' in \textit{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition}, 2016, pp. 779--788.
 
-\bibitem{ultralytics_docs}
-Ultralytics, ``YOLO documentation,'' 2024. [Online]. Available: \url{https://docs.ultralytics.com}
+\bibitem{jocher2023yolov8}
+G. Jocher, A. Chaurasia, and J. Qiu, ``Ultralytics YOLOv8,'' 2023. [Online]. Available: \url{https://github.com/ultralytics/ultralytics}
+
+\bibitem{suharjito2021mobile}
+Suharjito, G. N. Elwirehardja, and J. S. Prayoga, ``Oil palm fresh fruit bunch ripeness classification on mobile devices using deep learning approaches,'' \textit{Computers and Electronics in Agriculture}, vol. 188, article 106359, 2021.
+
+\bibitem{lai2022yolov4}
+J. W. Lai, H. R. Ramli, L. I. Ismail, and W. Z. W. Hasan, ``Real-time detection of ripe oil palm fresh fruit bunch based on YOLOv4,'' \textit{IEEE Access}, vol. 10, pp. 95763--95770, 2022.
+
+\bibitem{mansour2022object}
+M. Y. M. A. Mansour, K. D. Dambul, and K. Y. Choo, ``Object detection algorithms for ripeness classification of oil palm fresh fruit bunch,'' \textit{International Journal of Technology}, vol. 13, no. 6, pp. 1326--1335, 2022.
+
+\bibitem{tarvainen2017mean}
+A. Tarvainen and H. Valpola, ``Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results,'' in \textit{Advances in Neural Information Processing Systems}, 2017.
+
+\bibitem{sohn2020fixmatch}
+K. Sohn et al., ``FixMatch: Simplifying semi-supervised learning with consistency and confidence,'' in \textit{Advances in Neural Information Processing Systems}, 2020.
+
+\bibitem{sohn2020stac}
+K. Sohn et al., ``A simple semi-supervised learning framework for object detection,'' \textit{arXiv preprint arXiv:2005.04757}, 2020.
+
+\bibitem{liu2021unbiased}
+Y.-C. Liu et al., ``Unbiased teacher for semi-supervised object detection,'' in \textit{International Conference on Learning Representations}, 2021.
+
+\bibitem{xu2021softteacher}
+M. Xu et al., ``End-to-end semi-supervised object detection with soft teacher,'' in \textit{Proceedings of the IEEE/CVF International Conference on Computer Vision}, 2021.
+
+\bibitem{li2022pseco}
+J. Li et al., ``PseCo: Pseudo labeling and consistency training for semi-supervised object detection,'' in \textit{European Conference on Computer Vision}, 2022.
 
 \end{thebibliography}
 
 \clearpage
 \section*{Tables}
+
+\begin{table}[h]
+\centering
+\caption{Dataset roles used in the cross-domain evaluation protocol.}
+\label{tab:dataset_roles}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+Dataset role & Main use & Supervision type & Evaluation note \\
+\midrule
+Source-domain ScienceDB/OILPALM-style video frames & Source training and scene-disjoint testing & Bounding-box labels & Used to quantify in-domain and video/scene generalization \\
+External preprocessed FFB & Target-domain adaptation and locked external testing & Four-class detection protocol & Empty and overripe ignored during masked external evaluation \\
+Outdoor oil palm ripeness dataset & Third-domain exploratory testing & Image-level class labels & Used only for zero-shot image-level transfer analysis \\
+Unlabeled or weakly labeled images & Pseudo-label self-training & Folder-level weak prior or unlabeled & Filtered by quality score and multi-view consistency \\
+\bottomrule
+\end{tabular}}
+\end{table}
 
 \begin{table}[h]
 \centering
