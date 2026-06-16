@@ -1,0 +1,45 @@
+# Final JAE Submission Package
+
+Use this file as the submission checklist when uploading to the Journal of Agricultural Engineering online system.
+
+## Files to Upload or Copy
+
+| Submission step | File or text | Action |
+|---|---|---|
+| Manuscript file | `manuscript_jae/main.pdf` | Upload as the single manuscript PDF. |
+| Cover letter | `submission_jae/cover_letter.md` | Copy into the cover-letter field or upload if the system provides a cover-letter file slot. |
+| Comments to the Editor | `submission_jae/editor_comments.md` | Copy into the "Comments to the Editor" field. This file includes the suggested reviewers. |
+| Suggested reviewers | `submission_jae/suggested_reviewers_template.csv` | Use as backup if the system asks for reviewer information in separate fields. |
+| Repository link | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod` | Add in the code availability / comments field if requested. |
+
+## Main Manuscript Claims to Preserve
+
+- The source-only YOLOv8n model is evidence of cross-domain shift, not the main improvement baseline.
+- Model2 Balanced is the fair supervised target-domain adaptation baseline.
+- Strict SSOD is a high-precision operating point with lower recall.
+- The external preprocessed FFB evaluation is a four-class masked protocol.
+- The third-domain outdoor evaluation is image-level and exploratory.
+- Raw third-party datasets and trained weights are not redistributed.
+
+## Last Verified Format Status
+
+- Article type: Original Article.
+- Manuscript file: one PDF containing full text, tables, and figures.
+- Abstract: 254 words, unstructured.
+- References: 15.
+- Tables: 6.
+- Figures: 4.
+- Total tables and figures: 10.
+- Tables and figures are placed at the end.
+- Public code repository is available.
+- Suggested reviewers: 4.
+
+## Manual Check During Submission
+
+Before clicking final submit:
+
+1. Confirm the author name appears as `WU YUNING`.
+2. Confirm affiliation is entered as `School of Electrical Engineering and Artificial Intelligence, Xiamen University Malaysia`.
+3. Confirm email is `eee2309312@xmu.edu.my`.
+4. Confirm the manuscript category is `Original Article`.
+5. Confirm no raw dataset or trained-weight file is uploaded.

@@ -123,6 +123,7 @@ Submission-support files are available under:
 submission_jae/
   cover_letter.md
   editor_comments.md
+  FINAL_SUBMISSION_PACKAGE.md
   submission_checklist.md
   suggested_reviewers_template.csv
 ```
