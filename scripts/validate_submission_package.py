@@ -31,6 +31,7 @@ def check_required_files() -> None:
     required = [
         "README.md",
         "DATASETS.md",
+        "FINAL_READINESS_AUDIT.md",
         "REPRODUCIBILITY.md",
         "RELEASE_READINESS.md",
         "RELEASE_NOTES_JAE_SUBMISSION.md",

@@ -44,6 +44,9 @@ submission_jae/
 DATASETS.md
   Dataset setup and class-space notes
 
+FINAL_READINESS_AUDIT.md
+  Final JAE readiness audit and evidence map
+
 REPRODUCIBILITY.md
   Step-by-step reproduction guide and manuscript result mapping
 
