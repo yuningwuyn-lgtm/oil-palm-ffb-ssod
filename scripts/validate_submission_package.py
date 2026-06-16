@@ -44,6 +44,7 @@ def check_required_files() -> None:
         "submission_jae/SUBMISSION_FORM_TEXT.md",
         "submission_jae/FINAL_SUBMISSION_PACKAGE.md",
         "submission_jae/ARTIFACT_CHECKSUMS.md",
+        "submission_jae/pdf_visual_audit.md",
         "submission_jae/submission_checklist.md",
         "submission_jae/suggested_reviewers_template.csv",
         "submission_jae/jae_format_audit.md",

@@ -47,6 +47,7 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 | Submission file map | `submission_jae/FINAL_SUBMISSION_PACKAGE.md` | Pass |
 | Online form text | `submission_jae/SUBMISSION_FORM_TEXT.md` | Pass |
 | PDF checksum record | `submission_jae/ARTIFACT_CHECKSUMS.md` | Pass |
+| PDF visual audit | `submission_jae/pdf_visual_audit.md` | Pass |
 | Automated validator | `scripts/validate_submission_package.py` | Pass |
 | GitHub Actions validation | `Submission package validation` passes on `main` | Pass |
 
@@ -61,6 +62,10 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 | Blank-like pages | 0 |
 | Image pages | 3 |
 
+## Visual PDF Audit
+
+The final PDF was rendered through PyMuPDF for targeted visual inspection. Pages 1, 2, 6, 10, 13, and 16-20 were inspected, covering the title page, abstract/body text, declarations, references transition, all table pages, and all figure pages. No visible blank pages, text clipping, overlapping content, broken tables, or broken figure rendering were observed. The detailed record is stored in `submission_jae/pdf_visual_audit.md`.
+
 ## Automated Validation Summary
 
 The validator confirms:
@@ -71,6 +76,7 @@ The validator confirms:
 - Tables plus figures are below 15.
 - Citation keys and bibliography entries are consistent.
 - PDF checksum matches the recorded artifact checksum.
+- PDF visual audit covers representative text, table, and figure pages.
 - Reviewer list contains at least 3 reviewers and valid email fields.
 - Submission checklist has no open items.
 - Python source files compile.
