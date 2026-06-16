@@ -14,6 +14,9 @@ This checklist is based on the Journal of Agricultural Engineering submission pa
 - [x] References are fewer than 40.
 - [x] Total number of tables and figures is fewer than 15.
 - [x] Tables and figures are placed at the end of the manuscript.
+- [x] Keywords are limited to 3-6 items and arranged alphabetically.
+- [x] Author-year citation style is used in the manuscript text.
+- [x] Required declaration of generative artificial intelligence and AI-assisted technologies is included.
 - [x] A report manifest is included under `reports/REPORT_MANIFEST.md` to map CSV/JSON outputs to manuscript tables and interpretations.
 - [x] Editor comments are prepared under `submission_jae/editor_comments.md` for the online submission form.
 - [x] Online submission form text is prepared under `submission_jae/SUBMISSION_FORM_TEXT.md`.
@@ -33,7 +36,7 @@ This checklist is based on the Journal of Agricultural Engineering submission pa
 
 - [x] Confirm whether the GitHub repository should be public before submission or only shared upon request. Current status: public GitHub repository.
 - [x] Confirm conservative dataset license wording for public and locally prepared datasets. Current wording: code and selected reports are shared; raw datasets and trained weights are not redistributed.
-- [x] Confirm whether Xiamen University Malaysia affiliation wording is correct. Current manuscript wording: School of Electrical Engineering and Artificial Intelligence, Xiamen University Malaysia.
+- [x] Confirm whether Xiamen University Malaysia affiliation wording is correct. Current manuscript wording includes School of Electrical Engineering and Artificial Intelligence, Xiamen University Malaysia, Jalan Sunsuria, Bandar Sunsuria, 43900 Sepang, Selangor Darul Ehsan, Malaysia.
 - [x] Confirm whether any institutional acknowledgement is required. Current manuscript wording: no external supporting agency was involved.
 - [x] Prepare 3-4 suggested reviewers with verified institutional email addresses.
 - [x] Confirm upload format. JAE accepts a single WORD or PDF file; the prepared submission file is `manuscript_jae/main.pdf`.

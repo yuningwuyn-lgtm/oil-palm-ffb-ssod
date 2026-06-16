@@ -57,7 +57,7 @@ def check_required_files() -> None:
     citation_text = read_text(ROOT / "CITATION.cff")
     release_text = read_text(ROOT / "RELEASE_NOTES_JAE_SUBMISSION.md")
     for text_name, text in [("CITATION.cff", citation_text), ("RELEASE_NOTES_JAE_SUBMISSION.md", release_text)]:
-        if "1.0.0-jae-submission" not in text:
+        if "1.0.1-jae-author-guidelines" not in text:
             fail(f"{text_name} does not include the frozen submission version")
 
 
@@ -68,9 +68,9 @@ def check_manuscript_tex() -> dict[str, object]:
         fail("Abstract environment missing")
 
     abstract_words = len(re.findall(r"[A-Za-z0-9@.:-]+", abstract_match.group(1)))
-    bibs = set(re.findall(r"\\bibitem\{([^}]+)\}", tex))
+    bibs = set(re.findall(r"\\bibitem(?:\[[^\]]+\])?\{([^}]+)\}", tex))
     cites: set[str] = set()
-    for match in re.findall(r"\\cite\{([^}]+)\}", tex):
+    for match in re.findall(r"\\cite[a-zA-Z*]*\{([^}]+)\}", tex):
         cites.update(part.strip() for part in match.split(","))
 
     tables = len(re.findall(r"\\begin\{table\}", tex))
@@ -86,10 +86,24 @@ def check_manuscript_tex() -> dict[str, object]:
         fail(f"Missing bibliography entries: {sorted(cites - bibs)}")
     if bibs - cites:
         fail(f"Unused bibliography entries: {sorted(bibs - cites)}")
+    if "\\cite{" in tex:
+        fail("Numeric-style raw \\cite commands remain; use author-year \\citep or \\citet")
     if "human-in-the-loop" not in tex:
         fail("Applied human-in-the-loop deployment framing missing")
     if "github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod" not in tex:
         fail("Public repository URL missing from manuscript")
+    keyword_match = re.search(r"\\textbf\{Keywords:\}\s*(.+)", tex)
+    if not keyword_match:
+        fail("Keywords line missing")
+    keywords = [item.strip() for item in keyword_match.group(1).split(";") if item.strip()]
+    if not (3 <= len(keywords) <= 6):
+        fail(f"JAE keywords should contain 3 to 6 items, found {len(keywords)}")
+    if keywords != sorted(keywords, key=str.lower):
+        fail(f"JAE keywords should be in alphabetical order: {keywords}")
+    if "Declaration of Generative Artificial Intelligence" not in tex:
+        fail("Required generative AI declaration section missing")
+    if "Jalan Sunsuria, Bandar Sunsuria" not in tex:
+        fail("Full institutional postal address missing from title page")
 
     return {
         "abstract_words": abstract_words,
@@ -182,9 +196,10 @@ def check_submission_files() -> dict[str, object]:
         fail("Submission form abstract does not match manuscript abstract")
     for phrase in [
         "A Quality-Controlled Semi-Supervised Detection Framework",
-        "oil palm; fresh fruit bunch; maturity grading",
+        "agricultural engineering; domain adaptation; fresh fruit bunch",
         "The author declares no conflict of interest.",
         "This research received no external funding.",
+        "Declaration of Generative Artificial Intelligence",
     ]:
         if phrase not in form_text:
             fail(f"Submission form text missing phrase: {phrase}")

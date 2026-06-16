@@ -8,7 +8,7 @@ This file records the final visual inspection performed for the PDF-only Journal
 |---|---|
 | PDF | `manuscript_jae/main.pdf` |
 | Pages | 20 |
-| SHA256 | `83606778AE47E20669BC8DEA4926726AC5A0A859FA8FA348C481A55E8A7BEA9B` |
+| SHA256 | `7F0580FFCC2460D84B7DF2EB9D811CC9D2579BFD8E777EFCDD8BB167E8B812D3` |
 | Render method | PyMuPDF page rendering |
 | Inspection date | 2026-06-16 |
 
@@ -33,6 +33,5 @@ The following pages were rendered to PNG and visually inspected:
 
 - No blank rendered pages were observed.
 - No visible clipping, overlap, unreadable table text, or broken figure rendering was observed on inspected pages.
-- Mathematical symbols in extracted text may appear incorrectly when read by PDF text extraction tools, but the visual rendering of symbols such as `+/-` style mean-standard-deviation notation in tables appears correct in the rendered page images.
+- Mathematical symbols in extracted text may appear incorrectly when read by PDF text extraction tools, but the visual rendering of mean-standard-deviation notation in tables appears correct in the rendered page images.
 - The manuscript remains a PDF-only submission package; no Word manuscript backup is required because the journal accepts a single WORD or PDF document.
-

@@ -1,6 +1,6 @@
 # Release Notes: JAE Submission Snapshot
 
-Version: `v1.0.0-jae-submission`
+Version: `v1.0.1-jae-author-guidelines`
 
 Date: 2026-06-16
 
@@ -20,6 +20,7 @@ This release freezes the manuscript-support repository for Journal of Agricultur
 - Reproducibility guide and public release-readiness notes.
 - Citation metadata through `CITATION.cff`.
 - GitHub Actions workflow for lightweight submission-package validation.
+- JAE author-guideline updates: author-year citation style, 3-6 alphabetized keywords, full postal address, and generative AI declaration.
 
 ## Excluded
 
@@ -40,6 +41,7 @@ The validator checks:
 - References are below 40.
 - Tables plus figures are below 15.
 - Citation keys and bibliography entries are consistent.
+- JAE keyword count/order, author-year citation commands, postal address, and generative AI declaration are checked.
 - Suggested reviewers are present with valid email fields.
 - Submission checklist has no open items.
 - PDF has no blank-like pages when PyMuPDF is available.
@@ -50,8 +52,8 @@ Latest validated manuscript PDF:
 
 - File: `manuscript_jae/main.pdf`
 - Pages: 20
-- Size: 465877 bytes
-- SHA256: `83606778AE47E20669BC8DEA4926726AC5A0A859FA8FA348C481A55E8A7BEA9B`
+- Size: 467092 bytes
+- SHA256: `7F0580FFCC2460D84B7DF2EB9D811CC9D2579BFD8E777EFCDD8BB167E8B812D3`
 
 ## Interpretation Reminder
 

@@ -16,7 +16,7 @@ WU YUNING
 
 ## Affiliation
 
-School of Electrical Engineering and Artificial Intelligence, Xiamen University Malaysia, Sepang, Malaysia
+School of Electrical Engineering and Artificial Intelligence, Xiamen University Malaysia, Jalan Sunsuria, Bandar Sunsuria, 43900 Sepang, Selangor Darul Ehsan, Malaysia
 
 ## Corresponding Author Email
 
@@ -28,7 +28,7 @@ Automated oil palm fresh fruit bunch (FFB) maturity grading can support harvesti
 
 ## Keywords
 
-oil palm; fresh fruit bunch; maturity grading; object detection; semi-supervised learning; YOLOv8; domain adaptation; agricultural engineering
+agricultural engineering; domain adaptation; fresh fruit bunch; maturity grading; object detection; oil palm
 
 ## Data Availability Statement
 
@@ -53,6 +53,10 @@ The author thanks the maintainers of the public oil palm FFB datasets and the op
 ## CRediT Authorship Contribution
 
 WU YUNING: conceptualization, methodology, software, validation, formal analysis, data curation, writing-original draft preparation, visualization, and project administration.
+
+## Declaration of Generative Artificial Intelligence and Artificial Intelligence-Assisted Technologies in the Writing Process
+
+During the preparation of this work, the author used OpenAI ChatGPT/Codex to assist with language polishing, code organization, validation-checklist preparation, and manuscript formatting. After using these tools, the author reviewed and edited the content as needed and takes full responsibility for the content of the publication.
 
 ## Supporting Agencies
 

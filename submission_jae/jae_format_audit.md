@@ -12,7 +12,10 @@ Source: Journal of Agricultural Engineering submission page.
 - References should not exceed 40.
 - Total number of tables and figures should not exceed 15.
 - Text should be double-spaced and use 12-point font.
+- Keywords should be limited to the journal range and ordered consistently.
+- The journal uses author-year citation style.
 - Tables and figures should be placed at the end of the document.
+- Compulsory declarations include data/material availability, competing interests, funding, author contributions, acknowledgements, and generative AI/AI-assisted writing disclosure.
 - At least 3-4 potential reviewers should be suggested in the submission comments.
 
 ## Current Manuscript Status
@@ -22,7 +25,11 @@ Source: Journal of Agricultural Engineering submission page.
 - Tables: 6.
 - Figures: 4.
 - Total tables and figures: 10.
+- Keywords: 6, alphabetically ordered.
+- Citation style: author-year citations generated with `natbib`.
+- Title-page address: full Xiamen University Malaysia postal address included.
 - References traceability: DOI or stable online source added where available.
+- Generative AI declaration: included in manuscript and online submission form text.
 - Practical deployment framing: manuscript describes human-in-the-loop use at collection points, grading lines, or mobile inspection stations.
 - Independent Discussion section: removed; engineering interpretation is included inside Results.
 - Tables and figures: placed after References and author statements.

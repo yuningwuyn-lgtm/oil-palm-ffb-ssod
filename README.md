@@ -127,6 +127,9 @@ The manuscript has been formatted to match the main Journal of Agricultural Engi
 
 - unstructured abstract below 400 words;
 - 12-point double-spaced manuscript;
+- six alphabetically ordered keywords;
+- author-year citation style;
+- compulsory declaration sections, including the AI-assisted writing declaration;
 - tables and figures placed at the end;
 - fewer than 40 references;
 - fewer than 15 total tables and figures;

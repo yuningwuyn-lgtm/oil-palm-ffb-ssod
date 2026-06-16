@@ -38,7 +38,7 @@ Use this file as the submission checklist when uploading to the Journal of Agric
 - PDF visual audit: targeted rendered-page inspection passed.
 - Public code repository is available.
 - GitHub Actions submission-package validation passes on `main`.
-- Frozen release version: `v1.0.0-jae-submission`.
+- Frozen release version: `v1.0.1-jae-author-guidelines`.
 - Suggested reviewers: 4.
 
 ## Manual Check During Submission
@@ -46,8 +46,9 @@ Use this file as the submission checklist when uploading to the Journal of Agric
 Before clicking final submit:
 
 1. Confirm the author name appears as `WU YUNING`.
-2. Confirm affiliation is entered as `School of Electrical Engineering and Artificial Intelligence, Xiamen University Malaysia`.
+2. Confirm affiliation/address is entered as `School of Electrical Engineering and Artificial Intelligence, Xiamen University Malaysia, Jalan Sunsuria, Bandar Sunsuria, 43900 Sepang, Selangor Darul Ehsan, Malaysia`.
 3. Confirm email is `eee2309312@xmu.edu.my`.
 4. Confirm the manuscript category is `Original Article`.
 5. Confirm no raw dataset or trained-weight file is uploaded.
 6. Confirm the title, abstract, and keywords copied into the online form match `submission_jae/SUBMISSION_FORM_TEXT.md`.
+7. Confirm the generative AI declaration is copied into the required declaration field if the online system asks for it separately.
