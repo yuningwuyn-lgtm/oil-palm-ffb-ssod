@@ -8,12 +8,14 @@ Source: Journal of Agricultural Engineering submission page.
 
 - Original Articles should be submitted as one file.
 - Recommended structure: Abstract, Introduction, Materials and Methods, Results, Conclusions, References.
+- The detailed guide also lists Discussion as part of the manuscript text.
 - Abstract maximum: 400 words.
 - References should not exceed 40.
 - Total number of tables and figures should not exceed 15.
 - Text should be double-spaced and use 12-point font.
 - Keywords should be limited to the journal range and ordered consistently.
 - The journal uses author-year citation style.
+- References should be listed in strict alphabetical order by first author's last name.
 - Tables and figures should be placed at the end of the document.
 - Compulsory declarations include data/material availability, competing interests, funding, author contributions, acknowledgements, and generative AI/AI-assisted writing disclosure.
 - At least 3-4 potential reviewers should be suggested in the submission comments.
@@ -27,6 +29,9 @@ Source: Journal of Agricultural Engineering submission page.
 - Total tables and figures: 10.
 - Keywords: 6, alphabetically ordered.
 - Citation style: author-year citations generated with `natbib`.
+- Discussion section: included as an independent section.
+- Reference order: manually arranged by first author's last name.
+- Reference display format: revised toward JAE examples using surname-initial author format, year after authors, abbreviated journal/proceedings titles, and traceable DOI or stable URL.
 - Title-page address: full Xiamen University Malaysia postal address included.
 - References traceability: DOI or stable online source added where available.
 - Generative AI declaration: included in manuscript and online submission form text.

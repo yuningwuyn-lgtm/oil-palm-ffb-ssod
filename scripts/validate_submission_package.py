@@ -57,7 +57,7 @@ def check_required_files() -> None:
     citation_text = read_text(ROOT / "CITATION.cff")
     release_text = read_text(ROOT / "RELEASE_NOTES_JAE_SUBMISSION.md")
     for text_name, text in [("CITATION.cff", citation_text), ("RELEASE_NOTES_JAE_SUBMISSION.md", release_text)]:
-        if "1.0.1-jae-author-guidelines" not in text:
+        if "1.0.2-jae-reference-discussion" not in text:
             fail(f"{text_name} does not include the frozen submission version")
 
 
@@ -75,6 +75,7 @@ def check_manuscript_tex() -> dict[str, object]:
 
     tables = len(re.findall(r"\\begin\{table\}", tex))
     figures = len(re.findall(r"\\begin\{figure\}", tex))
+    bibitem_labels = re.findall(r"\\bibitem\[([^\]]+)\]\{([^}]+)\}", tex)
 
     if abstract_words > 400:
         fail(f"Abstract exceeds 400 words: {abstract_words}")
@@ -92,6 +93,8 @@ def check_manuscript_tex() -> dict[str, object]:
         fail("Applied human-in-the-loop deployment framing missing")
     if "github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod" not in tex:
         fail("Public repository URL missing from manuscript")
+    if "\\section{Discussion}" not in tex:
+        fail("JAE-style Discussion section missing")
     keyword_match = re.search(r"\\textbf\{Keywords:\}\s*(.+)", tex)
     if not keyword_match:
         fail("Keywords line missing")
@@ -104,6 +107,13 @@ def check_manuscript_tex() -> dict[str, object]:
         fail("Required generative AI declaration section missing")
     if "Jalan Sunsuria, Bandar Sunsuria" not in tex:
         fail("Full institutional postal address missing from title page")
+    reference_order = []
+    for label, _key in bibitem_labels:
+        author_part = label.split("(", 1)[0].strip()
+        first_author = re.split(r"\s+and\s+|\s+et al\.", author_part, maxsplit=1)[0].strip()
+        reference_order.append(first_author.lower())
+    if reference_order != sorted(reference_order):
+        fail(f"References are not in strict alphabetical order by first author: {reference_order}")
 
     return {
         "abstract_words": abstract_words,

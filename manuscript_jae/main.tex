@@ -43,7 +43,7 @@ Automated oil palm fresh fruit bunch (FFB) maturity grading can support harvesti
 
 Oil palm fresh fruit bunch (FFB) maturity grading is a key operational step in plantation management and palm oil production. Harvesting unripe bunches reduces oil extraction efficiency, whereas delayed harvesting can increase overripe bunches, loose fruit loss, and quality degradation. In practice, FFB maturity is often judged manually from color, texture, and fruit detachment cues. Manual grading is inexpensive and flexible, but it is also subjective, labor-intensive, and sensitive to worker experience, illumination, occlusion, and the mixture of bunches in piles or field scenes \citep{suharjito2023dataset,omar2024outdoor}.
 
-Computer vision has therefore been widely explored for agricultural quality assessment, fruit detection, and maturity grading \citep{kamilaris2018survey,bargoti2017fruit}. Modern object detectors, especially one-stage detectors in the YOLO family, are attractive for field applications because they provide a practical compromise between accuracy and inference speed \citep{redmon2016yolo,jocher2023yolov8}. For oil palm FFB maturity detection, a detector must localize bunches and distinguish visually similar maturity categories such as unripe, under-ripe, ripe, and overripe. Previous oil palm studies have shown the feasibility of deep learning and YOLO-based approaches for FFB ripeness classification or detection \citep{suharjito2021mobile,lai2022yolov4,mansour2022object}. However, this task remains more difficult than simple fruit presence detection because the decision boundary depends on fine color transitions, fruit surface texture, shadows, and camera exposure.
+Computer vision has therefore been widely explored for agricultural quality assessment, fruit detection, and maturity grading \citep{bargoti2017fruit,kamilaris2018survey}. Modern object detectors, especially one-stage detectors in the YOLO family, are attractive for field applications because they provide a practical compromise between accuracy and inference speed \citep{redmon2016yolo,jocher2023yolov8}. For oil palm FFB maturity detection, a detector must localize bunches and distinguish visually similar maturity categories such as unripe, under-ripe, ripe, and overripe. Previous oil palm studies have shown the feasibility of deep learning and YOLO-based approaches for FFB ripeness classification or detection \citep{suharjito2021mobile,lai2022yolov4,mansour2022object}. However, this task remains more difficult than simple fruit presence detection because the decision boundary depends on fine color transitions, fruit surface texture, shadows, and camera exposure.
 
 A major limitation of many agricultural detection studies is that the reported performance is often measured on random splits or same-source test sets. For video-frame datasets, random splitting can overestimate performance because adjacent frames from the same video, pile, lighting condition, or acquisition session may appear in both training and testing subsets. A model may therefore learn scene-specific appearance rather than robust maturity cues. When deployed on another dataset or plantation scene, performance can drop sharply. This issue is especially important for oil palm FFB maturity grading because available datasets are heterogeneous: some are collected from videos of fruit bunch piles \citep{suharjito2023dataset}, others from outdoor plantation scenes \citep{omar2024outdoor}, and others are preprocessed into class folders or weakly labeled subsets.
 
@@ -140,7 +140,7 @@ Under-ripe FFB remained the most difficult category. In the seed-2026 locked ext
 
 The under-ripe limitation is technically plausible. Under-ripe bunches lie between unripe and ripe in the maturity continuum and can be visually ambiguous under different lighting conditions. Future improvements should focus on ordinal maturity modeling, targeted under-ripe positive sampling, and richer color-calibrated field data rather than only increasing the amount of pseudo-labeled data.
 
-\subsection{Engineering Interpretation}
+\section{Discussion}
 
 The results support three engineering interpretations. First, random or same-source evaluation is insufficient for oil palm FFB maturity detection. The large gap between source-domain scene-disjoint performance and locked external-domain performance shows that a detector trained on one data source may not generalize to another without adaptation. This is especially important for video-frame datasets, where adjacent frames can produce optimistic random-split metrics.
 
@@ -194,50 +194,50 @@ No external supporting agency was involved in this study.
 
 \begin{thebibliography}{99}
 
-\bibitem[Suharjito et al.(2023)]{suharjito2023dataset}
-Suharjito, F. A. Junior, Y. P. Koeswandy, Debi, P. W. Nurhayati, M. Asrol, and Marimin, ``Annotated datasets of oil palm fruit bunch piles for ripeness grading using deep learning,'' \textit{Scientific Data}, vol. 10, article 72, 2023, doi: 10.1038/s41597-023-01958-x.
-
-\bibitem[Omar et al.(2024)]{omar2024outdoor}
-Z. Omar, A. P. P. Abdul Majeed, M. Rosbi, S. A. Ghazalli, and H. Selamat, ``Outdoor oil palm fruit ripeness dataset,'' \textit{Data in Brief}, vol. 55, article 110667, 2024, doi: 10.1016/j.dib.2024.110667.
-
-\bibitem[Kamilaris and Prenafeta-Boldu(2018)]{kamilaris2018survey}
-A. Kamilaris and F. X. Prenafeta-Boldu, ``Deep learning in agriculture: A survey,'' \textit{Computers and Electronics in Agriculture}, vol. 147, pp. 70--90, 2018, doi: 10.1016/j.compag.2018.02.016.
-
 \bibitem[Bargoti and Underwood(2017)]{bargoti2017fruit}
-S. Bargoti and J. Underwood, ``Deep fruit detection in orchards,'' in \textit{IEEE International Conference on Robotics and Automation}, 2017, pp. 3626--3633, doi: 10.1109/ICRA.2017.7989417.
-
-\bibitem[Redmon et al.(2016)]{redmon2016yolo}
-J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, ``You only look once: Unified, real-time object detection,'' in \textit{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition}, 2016, pp. 779--788, doi: 10.1109/CVPR.2016.91.
+Bargoti S, Underwood J, 2017. Deep fruit detection in orchards. Proc. IEEE Int. Conf. Robot. Autom., pp. 3626--33, doi: 10.1109/ICRA.2017.7989417.
 
 \bibitem[Jocher et al.(2023)]{jocher2023yolov8}
-G. Jocher, A. Chaurasia, and J. Qiu, ``Ultralytics YOLOv8,'' 2023. [Online]. Available: \url{https://github.com/ultralytics/ultralytics}
+Jocher G, Chaurasia A, Qiu J, 2023. Ultralytics YOLOv8. Available from: \url{https://github.com/ultralytics/ultralytics}
 
-\bibitem[Suharjito et al.(2021)]{suharjito2021mobile}
-Suharjito, G. N. Elwirehardja, and J. S. Prayoga, ``Oil palm fresh fruit bunch ripeness classification on mobile devices using deep learning approaches,'' \textit{Computers and Electronics in Agriculture}, vol. 188, article 106359, 2021, doi: 10.1016/j.compag.2021.106359.
+\bibitem[Kamilaris and Prenafeta-Boldu(2018)]{kamilaris2018survey}
+Kamilaris A, Prenafeta-Boldu FX, 2018. Deep learning in agriculture: a survey. \textit{Comput. Electron. Agric.} 147:70--90, doi: 10.1016/j.compag.2018.02.016.
 
 \bibitem[Lai et al.(2022)]{lai2022yolov4}
-J. W. Lai, H. R. Ramli, L. I. Ismail, and W. Z. W. Hasan, ``Real-time detection of ripe oil palm fresh fruit bunch based on YOLOv4,'' \textit{IEEE Access}, vol. 10, pp. 95763--95770, 2022, doi: 10.1109/ACCESS.2022.3204762.
-
-\bibitem[Mansour et al.(2022)]{mansour2022object}
-M. Y. M. A. Mansour, K. D. Dambul, and K. Y. Choo, ``Object detection algorithms for ripeness classification of oil palm fresh fruit bunch,'' \textit{International Journal of Technology}, vol. 13, no. 6, pp. 1326--1335, 2022, doi: 10.14716/ijtech.v13i6.5932.
-
-\bibitem[Tarvainen and Valpola(2017)]{tarvainen2017mean}
-A. Tarvainen and H. Valpola, ``Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results,'' in \textit{Advances in Neural Information Processing Systems}, 2017, doi: 10.48550/arXiv.1703.01780.
-
-\bibitem[Sohn et al.(2020a)]{sohn2020fixmatch}
-K. Sohn et al., ``FixMatch: Simplifying semi-supervised learning with consistency and confidence,'' in \textit{Advances in Neural Information Processing Systems}, 2020, doi: 10.48550/arXiv.2001.07685.
-
-\bibitem[Sohn et al.(2020b)]{sohn2020stac}
-K. Sohn et al., ``A simple semi-supervised learning framework for object detection,'' \textit{arXiv preprint arXiv:2005.04757}, 2020, doi: 10.48550/arXiv.2005.04757.
-
-\bibitem[Liu et al.(2021)]{liu2021unbiased}
-Y.-C. Liu et al., ``Unbiased teacher for semi-supervised object detection,'' in \textit{International Conference on Learning Representations}, 2021, doi: 10.48550/arXiv.2102.09480.
-
-\bibitem[Xu et al.(2021)]{xu2021softteacher}
-M. Xu et al., ``End-to-end semi-supervised object detection with soft teacher,'' in \textit{Proceedings of the IEEE/CVF International Conference on Computer Vision}, 2021, doi: 10.48550/arXiv.2106.09018.
+Lai JW, Ramli HR, Ismail LI, Hasan WZW, 2022. Real-time detection of ripe oil palm fresh fruit bunch based on YOLOv4. \textit{IEEE Access} 10:95763--70, doi: 10.1109/ACCESS.2022.3204762.
 
 \bibitem[Li et al.(2022)]{li2022pseco}
-J. Li et al., ``PseCo: Pseudo labeling and consistency training for semi-supervised object detection,'' in \textit{European Conference on Computer Vision}, 2022, doi: 10.1007/978-3-031-20077-9\_27.
+Li J et al., 2022. PseCo: pseudo labeling and consistency training for semi-supervised object detection. \textit{Eur. Conf. Comput. Vis.}, doi: 10.1007/978-3-031-20077-9\_27.
+
+\bibitem[Liu et al.(2021)]{liu2021unbiased}
+Liu YC et al., 2021. Unbiased teacher for semi-supervised object detection. \textit{Int. Conf. Learn. Represent.}, doi: 10.48550/arXiv.2102.09480.
+
+\bibitem[Mansour et al.(2022)]{mansour2022object}
+Mansour MYMA, Dambul KD, Choo KY, 2022. Object detection algorithms for ripeness classification of oil palm fresh fruit bunch. \textit{Int. J. Technol.} 13:1326--35, doi: 10.14716/ijtech.v13i6.5932.
+
+\bibitem[Omar et al.(2024)]{omar2024outdoor}
+Omar Z, Abdul Majeed APP, Rosbi M, Ghazalli SA, Selamat H, 2024. Outdoor oil palm fruit ripeness dataset. \textit{Data Brief} 55:110667, doi: 10.1016/j.dib.2024.110667.
+
+\bibitem[Redmon et al.(2016)]{redmon2016yolo}
+Redmon J, Divvala S, Girshick R, Farhadi A, 2016. You only look once: unified, real-time object detection. Proc. IEEE Conf. Comput. Vis. Pattern Recognit., pp. 779--88, doi: 10.1109/CVPR.2016.91.
+
+\bibitem[Sohn et al.(2020a)]{sohn2020fixmatch}
+Sohn K et al., 2020a. FixMatch: simplifying semi-supervised learning with consistency and confidence. \textit{Adv. Neural Inf. Process. Syst.}, doi: 10.48550/arXiv.2001.07685.
+
+\bibitem[Sohn et al.(2020b)]{sohn2020stac}
+Sohn K et al., 2020b. A simple semi-supervised learning framework for object detection. \textit{arXiv preprint arXiv:2005.04757}, doi: 10.48550/arXiv.2005.04757.
+
+\bibitem[Suharjito et al.(2021)]{suharjito2021mobile}
+Suharjito, Elwirehardja GN, Prayoga JS, 2021. Oil palm fresh fruit bunch ripeness classification on mobile devices using deep learning approaches. \textit{Comput. Electron. Agric.} 188:106359, doi: 10.1016/j.compag.2021.106359.
+
+\bibitem[Suharjito et al.(2023)]{suharjito2023dataset}
+Suharjito, Junior FA, Koeswandy YP, Debi, Nurhayati PW, Asrol M, Marimin, 2023. Annotated datasets of oil palm fruit bunch piles for ripeness grading using deep learning. \textit{Sci. Data} 10:72, doi: 10.1038/s41597-023-01958-x.
+
+\bibitem[Tarvainen and Valpola(2017)]{tarvainen2017mean}
+Tarvainen A, Valpola H, 2017. Mean teachers are better role models: weight-averaged consistency targets improve semi-supervised deep learning results. \textit{Adv. Neural Inf. Process. Syst.}, doi: 10.48550/arXiv.1703.01780.
+
+\bibitem[Xu et al.(2021)]{xu2021softteacher}
+Xu M et al., 2021. End-to-end semi-supervised object detection with soft teacher. Proc. IEEE/CVF Int. Conf. Comput. Vis., doi: 10.48550/arXiv.2106.09018.
 
 \end{thebibliography}
 

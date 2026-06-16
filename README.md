@@ -129,6 +129,8 @@ The manuscript has been formatted to match the main Journal of Agricultural Engi
 - 12-point double-spaced manuscript;
 - six alphabetically ordered keywords;
 - author-year citation style;
+- independent Discussion section;
+- alphabetically ordered reference list;
 - compulsory declaration sections, including the AI-assisted writing declaration;
 - tables and figures placed at the end;
 - fewer than 40 references;

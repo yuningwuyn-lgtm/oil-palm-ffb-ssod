@@ -11,6 +11,7 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 |---|---|---|
 | Original Article manuscript should be submitted as one file | `manuscript_jae/main.pdf` is a single PDF containing text, tables, and figures | Pass |
 | Structure should include Abstract, Introduction, Materials and Methods, Results, Conclusions, References | `manuscript_jae/main.tex` follows this structure | Pass |
+| Detailed guide lists Discussion | `manuscript_jae/main.tex` includes an independent Discussion section | Pass |
 | Text should be double-spaced and use 12-point font | `main.tex` uses `\documentclass[12pt]{article}` and `\doublespacing` | Pass |
 | Abstract maximum is 400 words | Validator reports 254 words | Pass |
 | References should not exceed 40 | Validator reports 15 references | Pass |
@@ -19,6 +20,7 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 | References must be traceable and accessible | References include DOI or stable online source where available | Pass |
 | Keywords should fit JAE guidance | Manuscript uses 6 alphabetically ordered keywords | Pass |
 | Author-year citation style should be used | Manuscript uses `natbib` author-year citations | Pass |
+| References should be alphabetized and traceable | Manual bibliography is ordered by first author's last name and displayed in a JAE-like surname-initial/year format with DOI or stable URL where available | Pass |
 | Compulsory declarations should be present | Availability, competing interest, funding, acknowledgements, author contribution, AI declaration, and supporting-agency statements are included | Pass |
 | Suggest at least 3/4 potential reviewers in Comments to the Editor | `submission_jae/editor_comments.md` includes 4 reviewers with affiliation, email, expertise, reason, and conflict check | Pass |
 
@@ -40,8 +42,8 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 | Evidence | File or system | Status |
 |---|---|---|
 | Public repository | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod` | Pass |
-| Frozen release | `v1.0.1-jae-author-guidelines` | Pass |
-| GitHub release page | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.1-jae-author-guidelines` | Pass |
+| Frozen release | `v1.0.2-jae-reference-discussion` | Pass |
+| GitHub release page | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.2-jae-reference-discussion` | Pass |
 | Citation metadata | `CITATION.cff` | Pass |
 | Release notes | `RELEASE_NOTES_JAE_SUBMISSION.md` | Pass |
 | Reproducibility guide | `REPRODUCIBILITY.md` | Pass |
@@ -60,8 +62,8 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 |---|---|
 | File | `manuscript_jae/main.pdf` |
 | Pages | 20 |
-| Size | 467092 bytes |
-| SHA256 | `7F0580FFCC2460D84B7DF2EB9D811CC9D2579BFD8E777EFCDD8BB167E8B812D3` |
+| Size | 465434 bytes |
+| SHA256 | `AC5DBBEDB40CDA1726204CF65B5258EBADE1CB140B43DA8C4B26D37FD1176E69` |
 | Blank-like pages | 0 |
 | Image pages | 3 |
 
@@ -79,6 +81,7 @@ The validator confirms:
 - Tables plus figures are below 15.
 - Citation keys and bibliography entries are consistent.
 - JAE author-year citation style, keyword count/order, postal address, and generative AI declaration are checked.
+- Discussion section presence and alphabetical reference order are checked.
 - PDF checksum matches the recorded artifact checksum.
 - PDF visual audit covers representative text, table, and figure pages.
 - Reviewer list contains at least 3 reviewers and valid email fields.

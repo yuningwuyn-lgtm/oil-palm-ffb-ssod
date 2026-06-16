@@ -38,7 +38,7 @@ Use this file as the submission checklist when uploading to the Journal of Agric
 - PDF visual audit: targeted rendered-page inspection passed.
 - Public code repository is available.
 - GitHub Actions submission-package validation passes on `main`.
-- Frozen release version: `v1.0.1-jae-author-guidelines`.
+- Frozen release version: `v1.0.2-jae-reference-discussion`.
 - Suggested reviewers: 4.
 
 ## Manual Check During Submission

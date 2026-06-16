@@ -11,11 +11,13 @@ This checklist is based on the Journal of Agricultural Engineering submission pa
 - [x] Abstract is unstructured.
 - [x] Abstract is below 400 words.
 - [x] Main structure follows: Abstract, Introduction, Materials and Methods, Results, Conclusions, References.
+- [x] Detailed-guide structure includes an independent Discussion section.
 - [x] References are fewer than 40.
 - [x] Total number of tables and figures is fewer than 15.
 - [x] Tables and figures are placed at the end of the manuscript.
 - [x] Keywords are limited to 3-6 items and arranged alphabetically.
 - [x] Author-year citation style is used in the manuscript text.
+- [x] References are arranged alphabetically by first author's last name.
 - [x] Required declaration of generative artificial intelligence and AI-assisted technologies is included.
 - [x] A report manifest is included under `reports/REPORT_MANIFEST.md` to map CSV/JSON outputs to manuscript tables and interpretations.
 - [x] Editor comments are prepared under `submission_jae/editor_comments.md` for the online submission form.
