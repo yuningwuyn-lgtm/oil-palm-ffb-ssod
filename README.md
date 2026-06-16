@@ -52,6 +52,9 @@ CITATION.cff
 
 RELEASE_READINESS.md
   Public-review readiness and artifact-exclusion notes
+
+scripts/validate_submission_package.py
+  Lightweight validator for manuscript, reports, submission files, and Python syntax
 ```
 
 ## Key Experimental Stages
@@ -146,6 +149,12 @@ For citation and public-release status, see:
 ```text
 CITATION.cff
 RELEASE_READINESS.md
+```
+
+Run the lightweight repository validation check:
+
+```powershell
+python scripts/validate_submission_package.py
 ```
 
 Before final submission, verify dataset-license wording, reviewer names/emails, and any journal-specific file-format requirements in the online submission system.
