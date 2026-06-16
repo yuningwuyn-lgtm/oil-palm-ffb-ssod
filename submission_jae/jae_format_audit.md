@@ -18,17 +18,18 @@ Source: Journal of Agricultural Engineering submission page.
 ## Current Manuscript Status
 
 - Abstract words: 254.
-- References: 16.
-- Tables: 5.
+- References: 15.
+- Tables: 6.
 - Figures: 4.
-- Total tables and figures: 9.
+- Total tables and figures: 10.
+- References traceability: DOI or stable online source added where available.
 - Independent Discussion section: removed; engineering interpretation is included inside Results.
 - Tables and figures: placed after References and author statements.
 - Compile check: `pdflatex` completed successfully.
 
-## Remaining Manual Checks
+## Final Submission Decisions
 
 - GitHub repository status confirmed as public.
 - Dataset license wording is conservative: raw third-party datasets and trained weights are not redistributed.
-- Fill in 3-4 suggested reviewers with verified institutional email addresses.
-- Confirm whether the submission system accepts PDF or requires a Word document.
+- Suggested reviewers file includes 4 candidates with institutional email addresses.
+- JAE accepts a single Word or PDF manuscript file; the prepared submission file is `manuscript_jae/main.pdf`.
