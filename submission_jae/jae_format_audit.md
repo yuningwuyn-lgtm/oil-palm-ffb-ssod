@@ -23,6 +23,7 @@ Source: Journal of Agricultural Engineering submission page.
 - Figures: 4.
 - Total tables and figures: 10.
 - References traceability: DOI or stable online source added where available.
+- Practical deployment framing: manuscript describes human-in-the-loop use at collection points, grading lines, or mobile inspection stations.
 - Independent Discussion section: removed; engineering interpretation is included inside Results.
 - Tables and figures: placed after References and author statements.
 - Compile check: `pdflatex` completed successfully.

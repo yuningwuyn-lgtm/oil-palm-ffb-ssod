@@ -24,7 +24,7 @@ Use this file as the submission checklist when uploading to the Journal of Agric
 ## Last Verified Format Status
 
 - Article type: Original Article.
-- Manuscript file: one PDF containing full text, tables, and figures.
+- Manuscript file: one 20-page PDF containing full text, tables, and figures.
 - Abstract: 254 words, unstructured.
 - References: 15.
 - Tables: 6.
