@@ -53,6 +53,9 @@ CITATION.cff
 RELEASE_READINESS.md
   Public-review readiness and artifact-exclusion notes
 
+RELEASE_NOTES_JAE_SUBMISSION.md
+  Frozen submission-snapshot release notes
+
 scripts/validate_submission_package.py
   Lightweight validator for manuscript, reports, submission files, and Python syntax
 ```
@@ -149,6 +152,7 @@ For citation and public-release status, see:
 ```text
 CITATION.cff
 RELEASE_READINESS.md
+RELEASE_NOTES_JAE_SUBMISSION.md
 ```
 
 Run the lightweight repository validation check:

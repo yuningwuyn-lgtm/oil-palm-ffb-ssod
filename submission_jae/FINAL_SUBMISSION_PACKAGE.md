@@ -13,6 +13,7 @@ Use this file as the submission checklist when uploading to the Journal of Agric
 | Suggested reviewers | `submission_jae/suggested_reviewers_template.csv` | Use as backup if the system asks for reviewer information in separate fields. |
 | Repository link | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod` | Add in the code availability / comments field if requested. |
 | Artifact checksum | `submission_jae/ARTIFACT_CHECKSUMS.md` | Use locally to confirm that the uploaded manuscript PDF matches the validated version. |
+| Frozen release notes | `RELEASE_NOTES_JAE_SUBMISSION.md` | Use to identify the exact repository snapshot submitted for review. |
 
 ## Main Manuscript Claims to Preserve
 
@@ -35,6 +36,7 @@ Use this file as the submission checklist when uploading to the Journal of Agric
 - Tables and figures are placed at the end.
 - Public code repository is available.
 - GitHub Actions submission-package validation passes on `main`.
+- Frozen release version: `v1.0.0-jae-submission`.
 - Suggested reviewers: 4.
 
 ## Manual Check During Submission

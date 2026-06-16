@@ -33,6 +33,7 @@ def check_required_files() -> None:
         "DATASETS.md",
         "REPRODUCIBILITY.md",
         "RELEASE_READINESS.md",
+        "RELEASE_NOTES_JAE_SUBMISSION.md",
         "CITATION.cff",
         "LICENSE",
         "manuscript_jae/main.tex",
@@ -50,6 +51,12 @@ def check_required_files() -> None:
     missing = [item for item in required if not (ROOT / item).exists()]
     if missing:
         fail(f"Missing required files: {missing}")
+
+    citation_text = read_text(ROOT / "CITATION.cff")
+    release_text = read_text(ROOT / "RELEASE_NOTES_JAE_SUBMISSION.md")
+    for text_name, text in [("CITATION.cff", citation_text), ("RELEASE_NOTES_JAE_SUBMISSION.md", release_text)]:
+        if "1.0.0-jae-submission" not in text:
+            fail(f"{text_name} does not include the frozen submission version")
 
 
 def check_manuscript_tex() -> dict[str, object]:
