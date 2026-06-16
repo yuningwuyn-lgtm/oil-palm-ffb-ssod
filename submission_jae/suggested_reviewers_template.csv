@@ -1,0 +1,5 @@
+name,affiliation,email,expertise,reason,conflict_check
+To be completed,To be completed,To be completed,agricultural computer vision / fruit detection,Relevant to field vision detection and precision agriculture,No known conflict
+To be completed,To be completed,To be completed,semi-supervised object detection / domain adaptation,Relevant to pseudo-label quality control and cross-domain evaluation,No known conflict
+To be completed,To be completed,To be completed,oil palm / crop maturity grading / postharvest engineering,Relevant to FFB maturity grading and agricultural engineering application,No known conflict
+To be completed,To be completed,To be completed,YOLO-based agricultural engineering systems,Relevant to applied deployment and detection-system evaluation,No known conflict

@@ -57,3 +57,7 @@ prepared_*/
 # OS files
 Thumbs.db
 .DS_Store
+
+# Local authentication scratch files
+gh_auth_login*.log
+gh_device_code.json

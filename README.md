@@ -38,6 +38,9 @@ reports/
 manuscript_jae/
   LaTeX manuscript draft and figures for Journal of Agricultural Engineering
 
+submission_jae/
+  Cover letter draft, checklist, and suggested reviewer template
+
 DATASETS.md
   Dataset setup and class-space notes
 ```
@@ -102,13 +105,25 @@ manuscript_jae/main.tex
 manuscript_jae/main.pdf
 ```
 
-Before submission, update:
+The manuscript has been formatted to match the main Journal of Agricultural Engineering Original Article constraints:
 
-- dataset/code availability links;
-- funding statement;
-- acknowledgements;
-- final reference formatting;
-- author affiliation if needed.
+- unstructured abstract below 400 words;
+- 12-point double-spaced manuscript;
+- tables and figures placed at the end;
+- fewer than 40 references;
+- fewer than 15 total tables and figures;
+- structure aligned with Introduction, Materials and Methods, Results, Conclusions, and References.
+
+Submission-support files are available under:
+
+```text
+submission_jae/
+  cover_letter.md
+  submission_checklist.md
+  suggested_reviewers_template.csv
+```
+
+Before final submission, verify dataset-license wording, reviewer names/emails, and whether the repository should remain private until publication.
 
 ## Data and Weights
 
@@ -116,5 +131,5 @@ Datasets, trained weights, generated prepared datasets, and large experiment fol
 
 ## License
 
-TODO: choose a license before making the repository public. MIT is suitable for code, but dataset licenses must be checked separately.
+The repository code and documentation are released under the MIT License. This license does not apply to third-party datasets, pretrained models, or trained weights.
 

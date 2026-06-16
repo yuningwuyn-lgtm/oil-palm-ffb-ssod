@@ -118,7 +118,7 @@ The primary detection metrics were precision, recall, F1-score, mAP@0.5, and mAP
 
 \subsection{Domain Shift from Source-Only Training}
 
-The source-only YOLOv8n model achieved scene-disjoint source-domain mAP@0.5 of 0.5917 and mAP@0.5:0.95 of 0.5018 across three seeds. However, when evaluated on the locked external preprocessed FFB dataset, performance dropped to mAP@0.5 of 0.0372 and mAP@0.5:0.95 of 0.0130. This confirms severe cross-domain degradation. Therefore, the source-only result should be interpreted as evidence of domain shift rather than as the main baseline for claiming method improvement.
+The source-only YOLOv8n model achieved scene-disjoint source-domain mAP@0.5 of 0.5917 and mAP@0.5:0.95 of 0.5018 across three seeds. However, when evaluated on the locked external preprocessed FFB dataset, performance dropped to mAP@0.5 of 0.0372 and mAP@0.5:0.95 of 0.0130. This confirms severe cross-domain degradation. Therefore, the source-only result was used as evidence of domain shift rather than as the main baseline for claiming method improvement.
 
 The class-balanced target-domain adaptation model substantially improved external-domain performance, reaching external mAP@0.5 of 0.6973 and mAP@0.5:0.95 of 0.4758. This result demonstrates that using the external-domain training portion for adaptation can recover target-domain detection performance. It does not demonstrate zero-shot generalization, because external-domain data were used during training.
 
@@ -138,15 +138,15 @@ Under-ripe FFB remained the most difficult category. In the seed-2026 locked ext
 
 The under-ripe limitation is technically plausible. Under-ripe bunches lie between unripe and ripe in the maturity continuum and can be visually ambiguous under different lighting conditions. Future improvements should focus on ordinal maturity modeling, targeted under-ripe positive sampling, and richer color-calibrated field data rather than only increasing the amount of pseudo-labeled data.
 
-\section{Discussion}
+\subsection{Engineering Interpretation}
 
-The results support three main interpretations. First, random or same-source evaluation is insufficient for oil palm FFB maturity detection. The large gap between source-domain scene-disjoint performance and locked external-domain performance shows that a detector trained on one data source may not generalize to another without adaptation. This is especially important for video-frame datasets, where adjacent frames can produce optimistic random-split metrics.
+The results support three engineering interpretations. First, random or same-source evaluation is insufficient for oil palm FFB maturity detection. The large gap between source-domain scene-disjoint performance and locked external-domain performance shows that a detector trained on one data source may not generalize to another without adaptation. This is especially important for video-frame datasets, where adjacent frames can produce optimistic random-split metrics.
 
 Second, target-domain adaptation is the dominant source of external-domain recovery. The improvement from source-only external mAP@0.5 of 0.0372 to Model2 Balanced external mAP@0.5 of 0.6973 should not be presented as a pure SSOD gain. It reflects the transition from source-only training to target-domain adaptation using the external training portion. This interpretation is important for scientific validity and for avoiding inflated claims.
 
 Third, strict SSOD contributes mainly to conservative deployment behavior. The precision-first model achieved high calibrated precision of 0.8753, but recall was 0.5364. This trade-off is relevant in agricultural engineering practice. If the system is used to flag high-confidence maturity classes for quality control, high precision is valuable. If the system is used to count all bunches or automate complete grading, additional recall-focused improvements are necessary.
 
-The proposed framework has several limitations. The external preprocessed FFB dataset lacks empty and overripe categories, requiring masked evaluation. Although this is methodologically necessary, it means the reported external-domain result does not cover the full six-class maturity scheme. The third-domain outdoor dataset was used only for image-level evaluation and had limited class balance, so it cannot replace a large object-detection external test set. Finally, the SSOD stage used offline pseudo-label filtering rather than a fully online EMA teacher-student training loop. This choice improves reproducibility and engineering simplicity but may limit the maximum performance gain.
+The proposed framework has several limitations. The external preprocessed FFB dataset lacks empty and overripe categories, requiring masked evaluation. Although this is methodologically necessary, it means the reported external-domain result does not cover the full six-class maturity scheme. The third-domain outdoor dataset was used only for image-level evaluation and had limited class balance, so it cannot replace a large object-detection external test set. Finally, the SSOD stage used offline pseudo-label filtering rather than a fully online exponential moving average teacher-student training loop. This choice improves reproducibility and engineering simplicity but may limit the maximum performance gain.
 
 \section{Conclusions}
 
@@ -158,11 +158,11 @@ For practical deployment, the proposed framework is most suitable as a conservat
 
 \section*{Data Availability Statement}
 
-The source and external datasets used in this study are derived from publicly available or locally prepared oil palm FFB datasets. The exact train, validation, test, and locked external split files should be released with the manuscript where dataset licenses permit. TODO: add a public repository link or Zenodo archive for processed split manifests, training scripts, and evaluation reports before submission.
+The source and external datasets used in this study were derived from publicly available or locally prepared oil palm FFB datasets. The manuscript repository contains the class-space definition, selected formal evaluation outputs, and the code needed to reproduce the preparation and evaluation protocol. Raw images and trained weights are not redistributed in the repository because their redistribution depends on the licenses and access conditions of the original datasets. Processed split manifests and additional evaluation outputs can be shared by the corresponding author upon reasonable request where permitted by the original data licenses.
 
 \section*{Code Availability Statement}
 
-The implementation was developed in Python using the Ultralytics YOLOv8 API. The pipeline includes dataset preparation, scene-disjoint splitting, duplicate checking, pseudo-label generation, quality scoring, class-wise threshold calibration, and structured JSON/CSV reporting. TODO: add GitHub or Zenodo code archive link before submission.
+The implementation was developed in Python using the Ultralytics YOLOv8 API. The pipeline includes dataset preparation, scene-disjoint splitting, duplicate checking, pseudo-label generation, quality scoring, class-wise threshold calibration, and structured JSON/CSV reporting. The working repository is available at \url{https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod}. The repository may be made public or archived with a DOI after confirming dataset-license constraints.
 
 \section*{Conflict of Interest}
 
@@ -170,11 +170,19 @@ The author declares no conflict of interest.
 
 \section*{Funding}
 
-This research received no external funding. TODO: revise if institutional or project funding must be acknowledged.
+This research received no external funding.
 
 \section*{Acknowledgements}
 
-The author thanks the maintainers of the public oil palm FFB datasets and open-source computer vision libraries used in this work. TODO: add any institutional acknowledgement required by Xiamen University Malaysia.
+The author thanks the maintainers of the public oil palm FFB datasets and the open-source computer vision libraries used in this work.
+
+\section*{CRediT Authorship Contribution}
+
+WU YUNING: conceptualization, methodology, software, validation, formal analysis, data curation, writing-original draft preparation, visualization, and project administration.
+
+\section*{Supporting Agencies}
+
+No external supporting agency was involved in this study.
 
 \begin{thebibliography}{99}
 
