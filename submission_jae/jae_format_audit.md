@@ -27,6 +27,7 @@ Source: Journal of Agricultural Engineering submission page.
 - Independent Discussion section: removed; engineering interpretation is included inside Results.
 - Tables and figures: placed after References and author statements.
 - Compile check: `pdflatex` completed successfully.
+- Render check: manuscript PDF rendered to page images for visual inspection; no blank pages, missing figures, or overfull layout errors were detected.
 
 ## Final Submission Decisions
 

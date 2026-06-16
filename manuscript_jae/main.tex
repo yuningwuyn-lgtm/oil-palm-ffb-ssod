@@ -231,7 +231,7 @@ Y.-C. Liu et al., ``Unbiased teacher for semi-supervised object detection,'' in 
 M. Xu et al., ``End-to-end semi-supervised object detection with soft teacher,'' in \textit{Proceedings of the IEEE/CVF International Conference on Computer Vision}, 2021, doi: 10.48550/arXiv.2106.09018.
 
 \bibitem{li2022pseco}
-J. Li et al., ``PseCo: Pseudo labeling and consistency training for semi-supervised object detection,'' in \textit{European Conference on Computer Vision}, 2022. doi: \url{https://doi.org/10.1007/978-3-031-20077-9_27}.
+J. Li et al., ``PseCo: Pseudo labeling and consistency training for semi-supervised object detection,'' in \textit{European Conference on Computer Vision}, 2022, doi: 10.1007/978-3-031-20077-9\_27.
 
 \end{thebibliography}
 
@@ -242,17 +242,18 @@ J. Li et al., ``PseCo: Pseudo labeling and consistency training for semi-supervi
 \centering
 \caption{Dataset roles used in the cross-domain evaluation protocol.}
 \label{tab:dataset_roles}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{llll}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.26\textwidth}@{}}
 \toprule
 Dataset role & Main use & Supervision type & Evaluation note \\
 \midrule
-Source-domain ScienceDB/OILPALM-style video frames & Source training and scene-disjoint testing & Bounding-box labels & Used to quantify in-domain and video/scene generalization \\
-External preprocessed FFB & Target-domain adaptation and locked external testing & Four-class detection protocol & Empty and overripe ignored during masked external evaluation \\
-Outdoor oil palm ripeness dataset & Third-domain exploratory testing & Image-level class labels & Used only for zero-shot image-level transfer analysis \\
+Source-domain video-frame FFB data & Source training and scene-disjoint testing & Bounding-box labels & Quantifies in-domain and video/scene generalization \\
+External preprocessed FFB & Target-domain adaptation and locked testing & Four-class detection protocol & Empty and overripe are ignored in masked evaluation \\
+Outdoor oil palm ripeness data & Third-domain exploratory testing & Image-level class labels & Used only for zero-shot image-level transfer analysis \\
 Unlabeled or weakly labeled images & Pseudo-label self-training & Folder-level weak prior or unlabeled & Filtered by quality score and multi-view consistency \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
 \begin{table}[h]
@@ -277,17 +278,30 @@ Class ID & Unified class & Used in external masked evaluation \\
 \centering
 \caption{Formal three-seed detection results. Values are mean $\pm$ standard deviation.}
 \label{tab:formal_results}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{lccccccc}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lcccc}
 \toprule
-Model & Scene mAP@0.5 & Scene mAP@0.5:0.95 & External mAP@0.5 & External mAP@0.5:0.95 & External precision & External recall & External F1 \\
+Model & Scene mAP50 & Scene mAP50--95 & Ext. mAP50 & Ext. mAP50--95 \\
 \midrule
-Source-only YOLOv8n & $0.5917 \pm 0.0339$ & $0.5018 \pm 0.0343$ & $0.0372 \pm 0.0221$ & $0.0130 \pm 0.0075$ & $0.1640 \pm 0.0747$ & $0.0933 \pm 0.0530$ & $0.0735 \pm 0.0308$ \\
-Model2 Balanced & $0.6459 \pm 0.0190$ & $0.5484 \pm 0.0149$ & $0.6973 \pm 0.0298$ & $0.4758 \pm 0.0175$ & $0.6126 \pm 0.0323$ & $0.7527 \pm 0.0121$ & $0.6442 \pm 0.0332$ \\
-Stage-1 SSOD teacher & $0.6141 \pm 0.0340$ & $0.5125 \pm 0.0183$ & $0.6619 \pm 0.0283$ & $0.4462 \pm 0.0309$ & $0.6163 \pm 0.0468$ & $0.7411 \pm 0.0473$ & $0.6390 \pm 0.0174$ \\
-Stage-2 refined & $0.5878 \pm 0.0436$ & $0.4900 \pm 0.0395$ & $0.6754 \pm 0.0430$ & $0.4645 \pm 0.0331$ & $0.6294 \pm 0.0402$ & $0.7427 \pm 0.0338$ & $0.6743 \pm 0.0386$ \\
+Source-only YOLOv8n & $0.5917 \pm 0.0339$ & $0.5018 \pm 0.0343$ & $0.0372 \pm 0.0221$ & $0.0130 \pm 0.0075$ \\
+Model2 Balanced & $0.6459 \pm 0.0190$ & $0.5484 \pm 0.0149$ & $0.6973 \pm 0.0298$ & $0.4758 \pm 0.0175$ \\
+Stage-1 SSOD teacher & $0.6141 \pm 0.0340$ & $0.5125 \pm 0.0183$ & $0.6619 \pm 0.0283$ & $0.4462 \pm 0.0309$ \\
+Stage-2 refined & $0.5878 \pm 0.0436$ & $0.4900 \pm 0.0395$ & $0.6754 \pm 0.0430$ & $0.4645 \pm 0.0331$ \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
+
+\vspace{0.5em}
+\begin{tabular}{lccc}
+\toprule
+Model & Ext. precision & Ext. recall & Ext. F1 \\
+\midrule
+Source-only YOLOv8n & $0.1640 \pm 0.0747$ & $0.0933 \pm 0.0530$ & $0.0735 \pm 0.0308$ \\
+Model2 Balanced & $0.6126 \pm 0.0323$ & $0.7527 \pm 0.0121$ & $0.6442 \pm 0.0332$ \\
+Stage-1 SSOD teacher & $0.6163 \pm 0.0468$ & $0.7411 \pm 0.0473$ & $0.6390 \pm 0.0174$ \\
+Stage-2 refined & $0.6294 \pm 0.0402$ & $0.7427 \pm 0.0338$ & $0.6743 \pm 0.0386$ \\
+\bottomrule
+\end{tabular}
 \end{table}
 
 \begin{table}[h]

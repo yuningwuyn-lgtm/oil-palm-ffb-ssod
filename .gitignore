@@ -48,6 +48,7 @@ prepared_*/
 *.mov
 
 # LaTeX build artifacts
+tmp/
 *.aux
 *.log
 *.out
