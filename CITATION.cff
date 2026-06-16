@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the manuscript and this software record."
+title: "Quality-Controlled Semi-Supervised YOLOv8 Framework for Cross-Domain Oil Palm FFB Maturity Detection"
+type: software
+authors:
+  - family-names: "Wu"
+    given-names: "Yuning"
+    email: "eee2309312@xmu.edu.my"
+    affiliation: "Xiamen University Malaysia"
+repository-code: "https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod"
+license: "MIT"
+date-released: "2026-06-16"
+keywords:
+  - "oil palm"
+  - "fresh fruit bunch"
+  - "maturity grading"
+  - "object detection"
+  - "semi-supervised learning"
+  - "YOLOv8"
+  - "domain adaptation"
+  - "agricultural engineering"
+abstract: "This repository contains a quality-controlled semi-supervised YOLOv8 pipeline for cross-domain oil palm fresh fruit bunch maturity detection, including scene-disjoint evaluation, locked external-domain evaluation, pseudo-label quality filtering, calibration, and JAE-oriented manuscript materials."

@@ -46,6 +46,12 @@ DATASETS.md
 
 REPRODUCIBILITY.md
   Step-by-step reproduction guide and manuscript result mapping
+
+CITATION.cff
+  Citation metadata for the public software repository
+
+RELEASE_READINESS.md
+  Public-review readiness and artifact-exclusion notes
 ```
 
 ## Key Experimental Stages
@@ -133,6 +139,13 @@ For reproducing the formal experiments and mapping archived CSV/JSON reports to 
 ```text
 REPRODUCIBILITY.md
 reports/REPORT_MANIFEST.md
+```
+
+For citation and public-release status, see:
+
+```text
+CITATION.cff
+RELEASE_READINESS.md
 ```
 
 Before final submission, verify dataset-license wording, reviewer names/emails, and any journal-specific file-format requirements in the online submission system.
