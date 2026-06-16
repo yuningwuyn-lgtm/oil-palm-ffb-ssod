@@ -43,6 +43,9 @@ submission_jae/
 
 DATASETS.md
   Dataset setup and class-space notes
+
+REPRODUCIBILITY.md
+  Step-by-step reproduction guide and manuscript result mapping
 ```
 
 ## Key Experimental Stages
@@ -122,6 +125,13 @@ submission_jae/
   editor_comments.md
   submission_checklist.md
   suggested_reviewers_template.csv
+```
+
+For reproducing the formal experiments and mapping archived CSV/JSON reports to manuscript tables, see:
+
+```text
+REPRODUCIBILITY.md
+reports/REPORT_MANIFEST.md
 ```
 
 Before final submission, verify dataset-license wording, reviewer names/emails, and any journal-specific file-format requirements in the online submission system.
