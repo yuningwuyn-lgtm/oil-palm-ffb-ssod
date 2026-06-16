@@ -33,13 +33,13 @@ configs/
   config.yaml
 
 reports/
-  Selected CSV/JSON outputs from formal experiments
+  Selected CSV/JSON outputs from formal experiments and a report manifest
 
 manuscript_jae/
   LaTeX manuscript draft and figures for Journal of Agricultural Engineering
 
 submission_jae/
-  Cover letter draft, checklist, and suggested reviewer template
+  Cover letter draft, editor comments, checklist, and suggested reviewer template
 
 DATASETS.md
   Dataset setup and class-space notes
@@ -119,6 +119,7 @@ Submission-support files are available under:
 ```text
 submission_jae/
   cover_letter.md
+  editor_comments.md
   submission_checklist.md
   suggested_reviewers_template.csv
 ```

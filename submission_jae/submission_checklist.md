@@ -14,6 +14,8 @@ This checklist is based on the Journal of Agricultural Engineering submission pa
 - [x] References are fewer than 40.
 - [x] Total number of tables and figures is fewer than 15.
 - [x] Tables and figures are placed at the end of the manuscript.
+- [x] A report manifest is included under `reports/REPORT_MANIFEST.md` to map CSV/JSON outputs to manuscript tables and interpretations.
+- [x] Editor comments are prepared under `submission_jae/editor_comments.md` for the online submission form.
 
 ## Scientific Risk Controls
 
