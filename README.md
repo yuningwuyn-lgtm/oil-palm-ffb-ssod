@@ -123,7 +123,7 @@ submission_jae/
   suggested_reviewers_template.csv
 ```
 
-Before final submission, verify dataset-license wording, reviewer names/emails, and whether the repository should remain private until publication.
+Before final submission, verify dataset-license wording, reviewer names/emails, and any journal-specific file-format requirements in the online submission system.
 
 ## Data and Weights
 

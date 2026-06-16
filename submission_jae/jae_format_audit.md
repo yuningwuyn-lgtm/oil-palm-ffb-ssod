@@ -28,7 +28,7 @@ Source: Journal of Agricultural Engineering submission page.
 
 ## Remaining Manual Checks
 
-- Confirm final public/private status of the GitHub repository.
-- Verify final dataset license wording.
+- GitHub repository status confirmed as public.
+- Dataset license wording is conservative: raw third-party datasets and trained weights are not redistributed.
 - Fill in 3-4 suggested reviewers with verified institutional email addresses.
 - Confirm whether the submission system accepts PDF or requires a Word document.

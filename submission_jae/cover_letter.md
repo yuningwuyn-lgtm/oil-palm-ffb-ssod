@@ -8,7 +8,7 @@ This manuscript addresses a practical agricultural engineering problem: oil palm
 
 The work is aligned with the scope of the Journal of Agricultural Engineering because it focuses on a field-oriented decision-support pipeline for crop maturity grading rather than only a generic computer vision benchmark. The study reports three-seed formal experiments and distinguishes clearly between source-only transfer, target-domain adaptation, and strict semi-supervised self-training. This conservative interpretation avoids overstating the contribution and provides practical guidance for agricultural deployment.
 
-The manuscript has not been published previously and is not under consideration by another journal. The author declares no conflict of interest. All listed code and selected evaluation reports are available in the project repository, while raw datasets and trained weights are not redistributed because they depend on the original dataset licenses.
+The manuscript has not been published previously and is not under consideration by another journal. The author declares no conflict of interest. The code, configuration templates, manuscript files, and selected evaluation reports are available in the public project repository, while raw third-party datasets and trained weights are not redistributed because they depend on the original dataset licenses and access conditions.
 
 Thank you for considering this manuscript. I look forward to your response.
 

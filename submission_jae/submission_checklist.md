@@ -26,9 +26,9 @@ This checklist is based on the Journal of Agricultural Engineering submission pa
 
 ## Items to Confirm Before Final Submission
 
-- [ ] Confirm whether the GitHub repository should be public before submission or only shared upon request.
-- [ ] Confirm dataset license wording for all public and locally prepared datasets.
-- [ ] Confirm whether Xiamen University Malaysia affiliation wording is correct.
-- [ ] Confirm whether any institutional acknowledgement is required.
-- [ ] Prepare 3-4 suggested reviewers with verified institutional email addresses.
-- [ ] Convert the final manuscript to Word if the submission system requires `.docx` instead of PDF.
+- [x] Confirm whether the GitHub repository should be public before submission or only shared upon request. Current status: public GitHub repository.
+- [x] Confirm conservative dataset license wording for public and locally prepared datasets. Current wording: code and selected reports are shared; raw datasets and trained weights are not redistributed.
+- [x] Confirm whether Xiamen University Malaysia affiliation wording is correct. Current manuscript wording: School of Electrical Engineering and Artificial Intelligence, Xiamen University Malaysia.
+- [x] Confirm whether any institutional acknowledgement is required. Current manuscript wording: no external supporting agency was involved.
+- [x] Prepare 3-4 suggested reviewers with verified institutional email addresses.
+- [x] Confirm upload format. JAE accepts a single WORD or PDF file; the prepared submission file is `manuscript_jae/main.pdf`.
