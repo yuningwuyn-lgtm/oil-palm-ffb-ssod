@@ -39,6 +39,7 @@ def check_required_files() -> None:
         "manuscript_jae/main.pdf",
         "submission_jae/cover_letter.md",
         "submission_jae/editor_comments.md",
+        "submission_jae/SUBMISSION_FORM_TEXT.md",
         "submission_jae/FINAL_SUBMISSION_PACKAGE.md",
         "submission_jae/ARTIFACT_CHECKSUMS.md",
         "submission_jae/submission_checklist.md",
@@ -156,10 +157,28 @@ def check_submission_files() -> dict[str, object]:
         "manuscript_jae/main.pdf",
         "cover_letter.md",
         "editor_comments.md",
+        "SUBMISSION_FORM_TEXT.md",
         "ARTIFACT_CHECKSUMS.md",
     ]:
         if token not in final_package:
             fail(f"Final package map missing token: {token}")
+
+    form_text = read_text(ROOT / "submission_jae/SUBMISSION_FORM_TEXT.md")
+    tex = read_text(ROOT / "manuscript_jae/main.tex")
+    abstract_match = re.search(r"\\begin\{abstract\}(.*?)\\end\{abstract\}", tex, re.S)
+    if not abstract_match:
+        fail("Cannot compare submission form abstract because manuscript abstract is missing")
+    manuscript_abstract = " ".join(abstract_match.group(1).split())
+    if manuscript_abstract not in " ".join(form_text.split()):
+        fail("Submission form abstract does not match manuscript abstract")
+    for phrase in [
+        "A Quality-Controlled Semi-Supervised Detection Framework",
+        "oil palm; fresh fruit bunch; maturity grading",
+        "The author declares no conflict of interest.",
+        "This research received no external funding.",
+    ]:
+        if phrase not in form_text:
+            fail(f"Submission form text missing phrase: {phrase}")
 
     return {"reviewer_count": len(reviewers), "open_checklist_items": len(open_items)}
 

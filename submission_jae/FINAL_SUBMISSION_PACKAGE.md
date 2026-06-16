@@ -9,6 +9,7 @@ Use this file as the submission checklist when uploading to the Journal of Agric
 | Manuscript file | `manuscript_jae/main.pdf` | Upload as the single manuscript PDF. |
 | Cover letter | `submission_jae/cover_letter.md` | Copy into the cover-letter field or upload if the system provides a cover-letter file slot. |
 | Comments to the Editor | `submission_jae/editor_comments.md` | Copy into the "Comments to the Editor" field. This file includes the suggested reviewers. |
+| Submission form text | `submission_jae/SUBMISSION_FORM_TEXT.md` | Copy title, abstract, keywords, author details, availability statements, funding, and conflict statements into the online form. |
 | Suggested reviewers | `submission_jae/suggested_reviewers_template.csv` | Use as backup if the system asks for reviewer information in separate fields. |
 | Repository link | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod` | Add in the code availability / comments field if requested. |
 | Artifact checksum | `submission_jae/ARTIFACT_CHECKSUMS.md` | Use locally to confirm that the uploaded manuscript PDF matches the validated version. |
@@ -45,3 +46,4 @@ Before clicking final submit:
 3. Confirm email is `eee2309312@xmu.edu.my`.
 4. Confirm the manuscript category is `Original Article`.
 5. Confirm no raw dataset or trained-weight file is uploaded.
+6. Confirm the title, abstract, and keywords copied into the online form match `submission_jae/SUBMISSION_FORM_TEXT.md`.
