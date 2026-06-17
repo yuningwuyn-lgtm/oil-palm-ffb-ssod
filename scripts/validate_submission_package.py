@@ -57,7 +57,7 @@ def check_required_files() -> None:
     citation_text = read_text(ROOT / "CITATION.cff")
     release_text = read_text(ROOT / "RELEASE_NOTES_JAE_SUBMISSION.md")
     for text_name, text in [("CITATION.cff", citation_text), ("RELEASE_NOTES_JAE_SUBMISSION.md", release_text)]:
-        if "1.0.2-jae-reference-discussion" not in text:
+        if "1.0.3-jae-final-submission-links" not in text:
             fail(f"{text_name} does not include the frozen submission version")
 
 
@@ -192,9 +192,17 @@ def check_submission_files() -> dict[str, object]:
         "editor_comments.md",
         "SUBMISSION_FORM_TEXT.md",
         "ARTIFACT_CHECKSUMS.md",
+        "v1.0.3-jae-final-submission-links",
     ]:
         if token not in final_package:
             fail(f"Final package map missing token: {token}")
+    cover_letter = read_text(ROOT / "submission_jae/cover_letter.md")
+    editor_comments = read_text(ROOT / "submission_jae/editor_comments.md")
+    for text_name, text in [("cover_letter.md", cover_letter), ("editor_comments.md", editor_comments)]:
+        if "https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod" not in text:
+            fail(f"{text_name} missing public repository URL")
+        if "v1.0.3-jae-final-submission-links" not in text:
+            fail(f"{text_name} missing frozen release URL")
 
     form_text = read_text(ROOT / "submission_jae/SUBMISSION_FORM_TEXT.md")
     tex = read_text(ROOT / "manuscript_jae/main.tex")

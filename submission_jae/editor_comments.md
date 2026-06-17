@@ -12,7 +12,15 @@ The manuscript intentionally distinguishes three interpretations:
 2. The Model2 Balanced result is treated as the primary target-domain adaptation baseline.
 3. The strict SSOD model is reported as a high-precision operating point, with its recall limitation stated explicitly.
 
-The repository linked in the manuscript contains the code, configuration templates, manuscript files, selected formal evaluation outputs, and report manifests. Raw third-party datasets and trained weights are not redistributed because their reuse and redistribution depend on the original data providers' license and access conditions.
+The repository linked in the manuscript contains the code, configuration templates, manuscript files, selected formal evaluation outputs, and report manifests:
+
+https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod
+
+The frozen submission-support snapshot is:
+
+https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.3-jae-final-submission-links
+
+Raw third-party datasets and trained weights are not redistributed because their reuse and redistribution depend on the original data providers' license and access conditions.
 
 Suggested reviewers are provided below with names, affiliations, email addresses, expertise, and conflict checks.
 

@@ -1,6 +1,6 @@
 # Release Notes: JAE Submission Snapshot
 
-Version: `v1.0.2-jae-reference-discussion`
+Version: `v1.0.3-jae-final-submission-links`
 
 Date: 2026-06-16
 
