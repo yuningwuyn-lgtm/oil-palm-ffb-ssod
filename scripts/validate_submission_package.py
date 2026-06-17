@@ -57,7 +57,7 @@ def check_required_files() -> None:
     citation_text = read_text(ROOT / "CITATION.cff")
     release_text = read_text(ROOT / "RELEASE_NOTES_JAE_SUBMISSION.md")
     for text_name, text in [("CITATION.cff", citation_text), ("RELEASE_NOTES_JAE_SUBMISSION.md", release_text)]:
-        if "1.0.4-jae-line-numbered-manuscript" not in text:
+        if "1.0.5-jae-declaration-headings" not in text:
             fail(f"{text_name} does not include the frozen submission version")
 
 
@@ -105,6 +105,16 @@ def check_manuscript_tex() -> dict[str, object]:
         fail(f"JAE keywords should be in alphabetical order: {keywords}")
     if "Declaration of Generative Artificial Intelligence" not in tex:
         fail("Required generative AI declaration section missing")
+    for required_section in [
+        "Availability of Data and Materials",
+        "Competing Interests",
+        "Funding",
+        "Acknowledgements",
+        "Authors' Contributions",
+        "Supporting Agencies",
+    ]:
+        if required_section not in tex:
+            fail(f"Required JAE declaration heading missing: {required_section}")
     if "Jalan Sunsuria, Bandar Sunsuria" not in tex:
         fail("Full institutional postal address missing from title page")
     if "\\usepackage{lineno}" not in tex or "\\linenumbers" not in tex:
@@ -194,7 +204,7 @@ def check_submission_files() -> dict[str, object]:
         "editor_comments.md",
         "SUBMISSION_FORM_TEXT.md",
         "ARTIFACT_CHECKSUMS.md",
-        "v1.0.4-jae-line-numbered-manuscript",
+        "v1.0.5-jae-declaration-headings",
     ]:
         if token not in final_package:
             fail(f"Final package map missing token: {token}")
@@ -203,7 +213,7 @@ def check_submission_files() -> dict[str, object]:
     for text_name, text in [("cover_letter.md", cover_letter), ("editor_comments.md", editor_comments)]:
         if "https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod" not in text:
             fail(f"{text_name} missing public repository URL")
-        if "v1.0.4-jae-line-numbered-manuscript" not in text:
+        if "v1.0.5-jae-declaration-headings" not in text:
             fail(f"{text_name} missing frozen release URL")
 
     form_text = read_text(ROOT / "submission_jae/SUBMISSION_FORM_TEXT.md")
@@ -219,6 +229,9 @@ def check_submission_files() -> dict[str, object]:
         "agricultural engineering; domain adaptation; fresh fruit bunch",
         "The author declares no conflict of interest.",
         "This research received no external funding.",
+        "Availability of Data and Materials",
+        "Competing Interests",
+        "Authors' Contributions",
         "Declaration of Generative Artificial Intelligence",
     ]:
         if phrase not in form_text:

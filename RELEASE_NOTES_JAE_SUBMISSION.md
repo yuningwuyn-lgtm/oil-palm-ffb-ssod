@@ -1,6 +1,6 @@
 # Release Notes: JAE Submission Snapshot
 
-Version: `v1.0.4-jae-line-numbered-manuscript`
+Version: `v1.0.5-jae-declaration-headings`
 
 Date: 2026-06-16
 
@@ -20,7 +20,7 @@ This release freezes the manuscript-support repository for Journal of Agricultur
 - Reproducibility guide and public release-readiness notes.
 - Citation metadata through `CITATION.cff`.
 - GitHub Actions workflow for lightweight submission-package validation.
-- JAE author-guideline updates: author-year citation style, independent Discussion section, alphabetized references, 3-6 alphabetized keywords, full postal address, numbered manuscript lines, and generative AI declaration.
+- JAE author-guideline updates: author-year citation style, independent Discussion section, alphabetized references, 3-6 alphabetized keywords, full postal address, numbered manuscript lines, JAE-aligned compulsory declaration headings, and generative AI declaration.
 
 ## Excluded
 
@@ -52,8 +52,8 @@ Latest validated manuscript PDF:
 
 - File: `manuscript_jae/main.pdf`
 - Pages: 20
-- Size: 476812 bytes
-- SHA256: `7698AB84B8C657B3811ADF7B9F30BE343A231FC5484F0C0CFA82ACBE7C4654E5`
+- Size: 477933 bytes
+- SHA256: `1EF690168D161C5662338204B67F8C847CD7C336E8382DF17A4FF5380E474EF5`
 
 ## Interpretation Reminder
 

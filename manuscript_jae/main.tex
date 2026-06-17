@@ -14,8 +14,10 @@
 \usepackage{subcaption}
 \usepackage{longtable}
 \usepackage{lineno}
+\usepackage{xcolor}
 
 \doublespacing
+\renewcommand\linenumberfont{\normalfont\scriptsize\color{gray}}
 
 \title{A Quality-Controlled Semi-Supervised Detection Framework\\for Cross-Domain Oil Palm\\Fresh Fruit Bunch Maturity Grading}
 
@@ -162,29 +164,29 @@ The experiments show that source-only training on video-frame data can fail seve
 
 For practical deployment, the proposed framework is most suitable as a conservative decision-support system for FFB maturity grading rather than a complete replacement for human inspection. Future work should expand third-domain detection data, add ordinal maturity constraints, collect more under-ripe boundary cases, and evaluate the system on continuous field video streams.
 
-\section*{Data Availability Statement}
+\section*{Availability of Data and Materials}
 
 The source and external datasets used in this study were derived from publicly available or locally prepared oil palm FFB datasets. The manuscript repository contains the class-space definition, selected formal evaluation outputs, and the code needed to reproduce the preparation and evaluation protocol. Raw images and trained weights are not redistributed in the repository because their redistribution depends on the licenses and access conditions of the original datasets. Processed split manifests and additional evaluation outputs can be shared by the corresponding author upon reasonable request where permitted by the original data licenses.
 
-\section*{Code Availability Statement}
+\section*{Code Availability}
 
 The implementation was developed in Python using the Ultralytics YOLOv8 API. The pipeline includes dataset preparation, scene-disjoint splitting, duplicate checking, pseudo-label generation, quality scoring, class-wise threshold calibration, and structured JSON/CSV reporting. The public repository is available at \url{https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod}. The repository contains source code, configuration templates, manuscript files, and selected evaluation reports; raw third-party datasets and trained weights are excluded because their redistribution depends on the licenses and access conditions of the original data providers.
 
-\section*{Conflict of Interest}
+\section*{Competing Interests}
 
 The author declares no conflict of interest.
 
 \section*{Funding}
 
-This research received no external funding.
+Not applicable. This research received no external funding.
 
 \section*{Acknowledgements}
 
 The author thanks the maintainers of the public oil palm FFB datasets and the open-source computer vision libraries used in this work.
 
-\section*{CRediT Authorship Contribution}
+\section*{Authors' Contributions}
 
-WU YUNING: conceptualization, methodology, software, validation, formal analysis, data curation, writing-original draft preparation, visualization, and project administration.
+WU YUNING: conceptualization, methodology, software, validation, formal analysis, data curation, writing-original draft preparation, visualization, and project administration. The contribution statement follows the CRediT taxonomy.
 
 \section*{Declaration of Generative Artificial Intelligence and Artificial Intelligence-Assisted Technologies in the Writing Process}
 

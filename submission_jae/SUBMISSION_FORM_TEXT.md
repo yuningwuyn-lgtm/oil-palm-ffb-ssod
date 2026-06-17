@@ -30,29 +30,29 @@ Automated oil palm fresh fruit bunch (FFB) maturity grading can support harvesti
 
 agricultural engineering; domain adaptation; fresh fruit bunch; maturity grading; object detection; oil palm
 
-## Data Availability Statement
+## Availability of Data and Materials
 
 The source and external datasets used in this study were derived from publicly available or locally prepared oil palm FFB datasets. The manuscript repository contains the class-space definition, selected formal evaluation outputs, and the code needed to reproduce the preparation and evaluation protocol. Raw images and trained weights are not redistributed in the repository because their redistribution depends on the licenses and access conditions of the original datasets. Processed split manifests and additional evaluation outputs can be shared by the corresponding author upon reasonable request where permitted by the original data licenses.
 
-## Code Availability Statement
+## Code Availability
 
 The implementation was developed in Python using the Ultralytics YOLOv8 API. The pipeline includes dataset preparation, scene-disjoint splitting, duplicate checking, pseudo-label generation, quality scoring, class-wise threshold calibration, and structured JSON/CSV reporting. The public repository is available at https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod. The repository contains source code, configuration templates, manuscript files, and selected evaluation reports; raw third-party datasets and trained weights are excluded because their redistribution depends on the licenses and access conditions of the original data providers.
 
-## Conflict of Interest
+## Competing Interests
 
 The author declares no conflict of interest.
 
 ## Funding
 
-This research received no external funding.
+Not applicable. This research received no external funding.
 
 ## Acknowledgements
 
 The author thanks the maintainers of the public oil palm FFB datasets and the open-source computer vision libraries used in this work.
 
-## CRediT Authorship Contribution
+## Authors' Contributions
 
-WU YUNING: conceptualization, methodology, software, validation, formal analysis, data curation, writing-original draft preparation, visualization, and project administration.
+WU YUNING: conceptualization, methodology, software, validation, formal analysis, data curation, writing-original draft preparation, visualization, and project administration. The contribution statement follows the CRediT taxonomy.
 
 ## Declaration of Generative Artificial Intelligence and Artificial Intelligence-Assisted Technologies in the Writing Process
 
