@@ -8,9 +8,9 @@ This file records the final visual inspection performed for the PDF-only Journal
 |---|---|
 | PDF | `manuscript_jae/main.pdf` |
 | Pages | 20 |
-| SHA256 | `AC5DBBEDB40CDA1726204CF65B5258EBADE1CB140B43DA8C4B26D37FD1176E69` |
+| SHA256 | `7698AB84B8C657B3811ADF7B9F30BE343A231FC5484F0C0CFA82ACBE7C4654E5` |
 | Render method | PyMuPDF page rendering |
-| Inspection date | 2026-06-16 |
+| Inspection date | 2026-06-17 |
 
 ## Pages Rendered and Reviewed
 
@@ -31,6 +31,7 @@ The following pages were rendered to PNG and visually inspected:
 
 ## Findings
 
+- Line numbers were visible on the inspected text pages.
 - No blank rendered pages were observed.
 - No visible clipping, overlap, unreadable table text, or broken figure rendering was observed on inspected pages.
 - Mathematical symbols in extracted text may appear incorrectly when read by PDF text extraction tools, but the visual rendering of mean-standard-deviation notation in tables appears correct in the rendered page images.

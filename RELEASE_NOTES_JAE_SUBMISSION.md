@@ -1,6 +1,6 @@
 # Release Notes: JAE Submission Snapshot
 
-Version: `v1.0.3-jae-final-submission-links`
+Version: `v1.0.4-jae-line-numbered-manuscript`
 
 Date: 2026-06-16
 
@@ -12,7 +12,7 @@ This release freezes the manuscript-support repository for Journal of Agricultur
 
 ## Included
 
-- JAE-oriented manuscript source and compiled PDF.
+- JAE-oriented manuscript source and compiled line-numbered PDF.
 - Cover letter, editor comments, final submission package map, submission form text, reviewer list, checklist, and artifact checksums.
 - Source code for dataset preparation, training orchestration, pseudo-label filtering, external evaluation, calibration, and reporting.
 - Selected formal CSV/JSON reports used to support manuscript tables and claims.
@@ -20,7 +20,7 @@ This release freezes the manuscript-support repository for Journal of Agricultur
 - Reproducibility guide and public release-readiness notes.
 - Citation metadata through `CITATION.cff`.
 - GitHub Actions workflow for lightweight submission-package validation.
-- JAE author-guideline updates: author-year citation style, independent Discussion section, alphabetized references, 3-6 alphabetized keywords, full postal address, and generative AI declaration.
+- JAE author-guideline updates: author-year citation style, independent Discussion section, alphabetized references, 3-6 alphabetized keywords, full postal address, numbered manuscript lines, and generative AI declaration.
 
 ## Excluded
 
@@ -52,8 +52,8 @@ Latest validated manuscript PDF:
 
 - File: `manuscript_jae/main.pdf`
 - Pages: 20
-- Size: 465434 bytes
-- SHA256: `AC5DBBEDB40CDA1726204CF65B5258EBADE1CB140B43DA8C4B26D37FD1176E69`
+- Size: 476812 bytes
+- SHA256: `7698AB84B8C657B3811ADF7B9F30BE343A231FC5484F0C0CFA82ACBE7C4654E5`
 
 ## Interpretation Reminder
 

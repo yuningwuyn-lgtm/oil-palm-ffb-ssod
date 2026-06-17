@@ -13,6 +13,7 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 | Structure should include Abstract, Introduction, Materials and Methods, Results, Conclusions, References | `manuscript_jae/main.tex` follows this structure | Pass |
 | Detailed guide lists Discussion | `manuscript_jae/main.tex` includes an independent Discussion section | Pass |
 | Text should be double-spaced and use 12-point font | `main.tex` uses `\documentclass[12pt]{article}` and `\doublespacing` | Pass |
+| Text should include numbered lines | `main.tex` uses the `lineno` package and enables `\linenumbers` | Pass |
 | Abstract maximum is 400 words | Validator reports 254 words | Pass |
 | References should not exceed 40 | Validator reports 15 references | Pass |
 | Total number of tables and figures should not exceed 15 | Validator reports 6 tables and 4 figures, total 10 | Pass |
@@ -42,8 +43,8 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 | Evidence | File or system | Status |
 |---|---|---|
 | Public repository | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod` | Pass |
-| Frozen release | `v1.0.3-jae-final-submission-links` | Pass |
-| GitHub release page | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.3-jae-final-submission-links` | Pass |
+| Frozen release | `v1.0.4-jae-line-numbered-manuscript` | Pass |
+| GitHub release page | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.4-jae-line-numbered-manuscript` | Pass |
 | Citation metadata | `CITATION.cff` | Pass |
 | Release notes | `RELEASE_NOTES_JAE_SUBMISSION.md` | Pass |
 | Reproducibility guide | `REPRODUCIBILITY.md` | Pass |
@@ -62,14 +63,14 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 |---|---|
 | File | `manuscript_jae/main.pdf` |
 | Pages | 20 |
-| Size | 465434 bytes |
-| SHA256 | `AC5DBBEDB40CDA1726204CF65B5258EBADE1CB140B43DA8C4B26D37FD1176E69` |
+| Size | 476812 bytes |
+| SHA256 | `7698AB84B8C657B3811ADF7B9F30BE343A231FC5484F0C0CFA82ACBE7C4654E5` |
 | Blank-like pages | 0 |
 | Image pages | 3 |
 
 ## Visual PDF Audit
 
-The final PDF was rendered through PyMuPDF for targeted visual inspection. Pages 1, 2, 6, 10, 13, and 16-20 were inspected, covering the title page, abstract/body text, declarations, references transition, all table pages, and all figure pages. No visible blank pages, text clipping, overlapping content, broken tables, or broken figure rendering were observed. The detailed record is stored in `submission_jae/pdf_visual_audit.md`.
+The final line-numbered PDF was rendered through PyMuPDF for targeted visual inspection. Pages 1, 2, 6, 10, 13, and 16-20 were inspected, covering the title page, abstract/body text, declarations, references transition, all table pages, and all figure pages. No visible blank pages, text clipping, overlapping content, broken tables, or broken figure rendering were observed. The detailed record is stored in `submission_jae/pdf_visual_audit.md`.
 
 ## Automated Validation Summary
 

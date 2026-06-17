@@ -13,6 +13,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{longtable}
+\usepackage{lineno}
 
 \doublespacing
 
@@ -32,6 +33,7 @@ Xiamen University Malaysia, Jalan Sunsuria, Bandar Sunsuria,\\
 \setlength{\emergencystretch}{3em}
 \sloppy
 \maketitle
+\linenumbers
 
 \begin{abstract}
 Automated oil palm fresh fruit bunch (FFB) maturity grading can support harvesting decisions, reduce manual subjectivity, and improve traceability in plantation operations. However, visual detection models trained on one image source often degrade when deployed across plantations, acquisition devices, lighting conditions, and dataset annotation protocols. This study presents a quality-controlled semi-supervised object detection framework for cross-domain oil palm FFB maturity grading. The framework starts from a YOLOv8n detector trained on a labeled source-domain video-frame dataset, introduces class-space harmonization across heterogeneous datasets, applies scene-disjoint evaluation to reduce frame-level leakage, and evaluates external-domain performance on a separate preprocessed FFB dataset with a four-class masked protocol. To improve robustness, the proposed pipeline combines class-balanced target-domain adaptation with strict pseudo-label filtering based on confidence, bounding-box geometry, edge-contact penalties, folder-level weak-label consistency, multi-view augmentation consistency, and class-wise dynamic confidence thresholds. Three random seeds were used for the main formal comparison. The source-only baseline achieved high scene-disjoint source-domain performance but collapsed on the locked external domain, with external mAP@0.5 of 0.0372 and mAP@0.5:0.95 of 0.0130, confirming severe domain shift. A class-balanced target-domain adaptation model improved external mAP@0.5 to 0.6973 and mAP@0.5:0.95 to 0.4758. A precision-first strict SSOD model achieved calibrated external mAP@0.5 of 0.7240, mAP@0.5:0.95 of 0.4863, precision of 0.8753, recall of 0.5364, and F1-score of 0.6321. A third-domain zero-shot image-level evaluation further indicated improved transfer relative to the source-only baseline. The results show that external-domain adaptation and quality-controlled pseudo-label selection can produce a more conservative and field-oriented FFB maturity detector, although under-ripe fruit bunches remain the main error source.

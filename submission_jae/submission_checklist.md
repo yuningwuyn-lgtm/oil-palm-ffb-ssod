@@ -8,6 +8,7 @@ This checklist is based on the Journal of Agricultural Engineering submission pa
 - [x] One manuscript file prepared as PDF from `manuscript_jae/main.tex`.
 - [x] Text uses 12-point font.
 - [x] Text is double-spaced.
+- [x] Text has numbered lines.
 - [x] Abstract is unstructured.
 - [x] Abstract is below 400 words.
 - [x] Main structure follows: Abstract, Introduction, Materials and Methods, Results, Conclusions, References.

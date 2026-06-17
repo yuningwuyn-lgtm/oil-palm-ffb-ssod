@@ -127,6 +127,7 @@ The manuscript has been formatted to match the main Journal of Agricultural Engi
 
 - unstructured abstract below 400 words;
 - 12-point double-spaced manuscript;
+- numbered manuscript lines;
 - six alphabetically ordered keywords;
 - author-year citation style;
 - independent Discussion section;

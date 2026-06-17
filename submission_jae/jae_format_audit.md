@@ -13,6 +13,7 @@ Source: Journal of Agricultural Engineering submission page.
 - References should not exceed 40.
 - Total number of tables and figures should not exceed 15.
 - Text should be double-spaced and use 12-point font.
+- Text should include numbered lines.
 - Keywords should be limited to the journal range and ordered consistently.
 - The journal uses author-year citation style.
 - References should be listed in strict alphabetical order by first author's last name.
@@ -29,6 +30,7 @@ Source: Journal of Agricultural Engineering submission page.
 - Total tables and figures: 10.
 - Keywords: 6, alphabetically ordered.
 - Citation style: author-year citations generated with `natbib`.
+- Line numbering: enabled with the LaTeX `lineno` package.
 - Discussion section: included as an independent section.
 - Reference order: manually arranged by first author's last name.
 - Reference display format: revised toward JAE examples using surname-initial author format, year after authors, abbreviated journal/proceedings titles, and traceable DOI or stable URL.
