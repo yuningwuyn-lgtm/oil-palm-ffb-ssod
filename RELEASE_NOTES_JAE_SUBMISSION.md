@@ -1,6 +1,6 @@
 # Release Notes: JAE Submission Snapshot
 
-Version: `v1.0.7-jae-style-polish`
+Version: `v1.0.8-jae-submission-bundle`
 
 Date: 2026-06-16
 
@@ -15,6 +15,7 @@ This release freezes the manuscript-support repository for Journal of Agricultur
 - JAE-oriented manuscript source and compiled line-numbered PDF.
 - Method workflow figure summarizing data roles, model stages, pseudo-label filtering, and locked evaluation.
 - Minor JAE-style polishing of in-text figure and table references.
+- Clean local submission-bundle generator for manuscript PDF, cover letter, editor comments, form text, reviewer template, checksums, and reproducibility support files.
 - Cover letter, editor comments, final submission package map, submission form text, reviewer list, checklist, and artifact checksums.
 - Source code for dataset preparation, training orchestration, pseudo-label filtering, external evaluation, calibration, and reporting.
 - Selected formal CSV/JSON reports used to support manuscript tables and claims.

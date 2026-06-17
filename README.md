@@ -170,6 +170,12 @@ Run the lightweight repository validation check:
 python scripts/validate_submission_package.py
 ```
 
+Create a clean local submission bundle:
+
+```powershell
+python scripts/create_submission_bundle.py
+```
+
 Before final submission, verify dataset-license wording, reviewer names/emails, and any journal-specific file-format requirements in the online submission system.
 
 ## Data and Weights

@@ -49,6 +49,7 @@ def check_required_files() -> None:
         "submission_jae/suggested_reviewers_template.csv",
         "submission_jae/jae_format_audit.md",
         "reports/REPORT_MANIFEST.md",
+        "scripts/create_submission_bundle.py",
     ]
     missing = [item for item in required if not (ROOT / item).exists()]
     if missing:
@@ -57,7 +58,7 @@ def check_required_files() -> None:
     citation_text = read_text(ROOT / "CITATION.cff")
     release_text = read_text(ROOT / "RELEASE_NOTES_JAE_SUBMISSION.md")
     for text_name, text in [("CITATION.cff", citation_text), ("RELEASE_NOTES_JAE_SUBMISSION.md", release_text)]:
-        if "1.0.7-jae-style-polish" not in text:
+        if "1.0.8-jae-submission-bundle" not in text:
             fail(f"{text_name} does not include the frozen submission version")
 
 
@@ -204,7 +205,7 @@ def check_submission_files() -> dict[str, object]:
         "editor_comments.md",
         "SUBMISSION_FORM_TEXT.md",
         "ARTIFACT_CHECKSUMS.md",
-        "v1.0.7-jae-style-polish",
+        "v1.0.8-jae-submission-bundle",
     ]:
         if token not in final_package:
             fail(f"Final package map missing token: {token}")
@@ -213,7 +214,7 @@ def check_submission_files() -> dict[str, object]:
     for text_name, text in [("cover_letter.md", cover_letter), ("editor_comments.md", editor_comments)]:
         if "https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod" not in text:
             fail(f"{text_name} missing public repository URL")
-        if "v1.0.7-jae-style-polish" not in text:
+        if "v1.0.8-jae-submission-bundle" not in text:
             fail(f"{text_name} missing frozen release URL")
 
     form_text = read_text(ROOT / "submission_jae/SUBMISSION_FORM_TEXT.md")
@@ -268,7 +269,8 @@ def check_privacy_strings() -> None:
 
 
 def check_python_compile() -> None:
-    for path in sorted((ROOT / "src").glob("*.py")):
+    python_paths = sorted((ROOT / "src").glob("*.py")) + sorted((ROOT / "scripts").glob("*.py"))
+    for path in python_paths:
         result = subprocess.run(
             [sys.executable, "-m", "py_compile", str(path)],
             cwd=ROOT,
