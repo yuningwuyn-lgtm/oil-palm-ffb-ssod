@@ -6,7 +6,7 @@ Use these checksums to confirm that the uploaded files match the validated repos
 
 | File | Size bytes | SHA256 |
 |---|---:|---|
-| `manuscript_jae/main.pdf` | 477933 | `1EF690168D161C5662338204B67F8C847CD7C336E8382DF17A4FF5380E474EF5` |
+| `manuscript_jae/main.pdf` | 745236 | `498AA4D2395D4CE233C022D5DA8465550CC3A2CBF35F33B44939627162C73D9E` |
 
 ## Verification Command
 

@@ -16,7 +16,7 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 | Text should include numbered lines | `main.tex` uses the `lineno` package and enables `\linenumbers` | Pass |
 | Abstract maximum is 400 words | Validator reports 254 words | Pass |
 | References should not exceed 40 | Validator reports 15 references | Pass |
-| Total number of tables and figures should not exceed 15 | Validator reports 6 tables and 4 figures, total 10 | Pass |
+| Total number of tables and figures should not exceed 15 | Validator reports 6 tables and 5 figures, total 11 | Pass |
 | Tables and figures should be placed at the end | Tables and figures are placed after references and author statements | Pass |
 | References must be traceable and accessible | References include DOI or stable online source where available | Pass |
 | Keywords should fit JAE guidance | Manuscript uses 6 alphabetically ordered keywords | Pass |
@@ -43,8 +43,8 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 | Evidence | File or system | Status |
 |---|---|---|
 | Public repository | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod` | Pass |
-| Frozen release | `v1.0.5-jae-declaration-headings` | Pass |
-| GitHub release page | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.5-jae-declaration-headings` | Pass |
+| Frozen release | `v1.0.6-jae-workflow-figure` | Pass |
+| GitHub release page | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.6-jae-workflow-figure` | Pass |
 | Citation metadata | `CITATION.cff` | Pass |
 | Release notes | `RELEASE_NOTES_JAE_SUBMISSION.md` | Pass |
 | Reproducibility guide | `REPRODUCIBILITY.md` | Pass |
@@ -63,14 +63,14 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 |---|---|
 | File | `manuscript_jae/main.pdf` |
 | Pages | 20 |
-| Size | 477933 bytes |
-| SHA256 | `1EF690168D161C5662338204B67F8C847CD7C336E8382DF17A4FF5380E474EF5` |
+| Size | 745236 bytes |
+| SHA256 | `498AA4D2395D4CE233C022D5DA8465550CC3A2CBF35F33B44939627162C73D9E` |
 | Blank-like pages | 0 |
 | Image pages | 3 |
 
 ## Visual PDF Audit
 
-The final line-numbered PDF was rendered through PyMuPDF for targeted visual inspection. Pages 1, 2, 6, 10, 13, and 16-20 were inspected, covering the title page, abstract/body text, declarations, references transition, all table pages, and all figure pages. No visible blank pages, text clipping, overlapping content, broken tables, or broken figure rendering were observed. The detailed record is stored in `submission_jae/pdf_visual_audit.md`.
+The final line-numbered PDF was rendered through PyMuPDF for targeted visual inspection. Pages 1, 2, 6, 10, 13, and 16-20 were inspected, covering the title page, abstract/body text, declarations, references transition, all table pages, the workflow figure, and all result figure pages. No visible blank pages, text clipping, overlapping content, broken tables, or broken figure rendering were observed. The detailed record is stored in `submission_jae/pdf_visual_audit.md`.
 
 ## Automated Validation Summary
 

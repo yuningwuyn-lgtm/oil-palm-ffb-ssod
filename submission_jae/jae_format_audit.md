@@ -26,8 +26,8 @@ Source: Journal of Agricultural Engineering submission page.
 - Abstract words: 254.
 - References: 15.
 - Tables: 6.
-- Figures: 4.
-- Total tables and figures: 10.
+- Figures: 5.
+- Total tables and figures: 11.
 - Keywords: 6, alphabetically ordered.
 - Citation style: author-year citations generated with `natbib`.
 - Line numbering: enabled with the LaTeX `lineno` package.

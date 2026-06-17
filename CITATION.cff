@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this repository, please cite the manuscript and this software record."
 title: "Quality-Controlled Semi-Supervised YOLOv8 Framework for Cross-Domain Oil Palm FFB Maturity Detection"
 type: software
-version: "1.0.5-jae-declaration-headings"
+version: "1.0.6-jae-workflow-figure"
 authors:
   - family-names: "Wu"
     given-names: "Yuning"

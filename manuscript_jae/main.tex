@@ -61,6 +61,8 @@ The main contributions of this work are as follows. First, a strict evaluation p
 
 The experimental pipeline used three dataset roles, summarized in Table~\ref{tab:dataset_roles}. The first was a labeled source-domain oil palm FFB dataset based mainly on ScienceDB/OILPALM-style video-frame imagery \citep{suharjito2023dataset}. This dataset was used to train the source-only supervised baseline and to construct a scene-disjoint split. The second was an external-domain preprocessed FFB dataset, which was used as the main target-domain dataset for cross-domain evaluation and adaptation. The third was an outdoor oil palm ripeness dataset used only for exploratory third-domain zero-shot image-level evaluation \citep{omar2024outdoor}.
 
+The complete workflow is summarized in Fig.~\ref{fig:framework_workflow}. The protocol separates source-domain training, external-domain adaptation, weakly guided pseudo-label filtering, locked external testing, and third-domain evaluation to avoid mixing training evidence with final evaluation evidence.
+
 The unified class scheme contained six maturity or condition classes (Table~\ref{tab:class_scheme}):
 \[
 \mathcal{C}=\{\text{abnormal},\text{empty},\text{overripe},\text{ripe},\text{under\_ripe},\text{unripe}\}.
@@ -365,7 +367,13 @@ Strict SSOD & 0.6657 & 0.4918 & 48 & 5 \\
 \end{table}
 
 \clearpage
-\section*{Figures}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_framework_workflow.png}
+\caption{Overview of the proposed quality-controlled cross-domain SSOD workflow. Data sources, protocol controls, model stages, and evaluation targets are separated to preserve the distinction between source-only transfer, target-domain adaptation, and precision-first strict SSOD.}
+\label{fig:framework_workflow}
+\end{figure}
 
 \begin{figure}[h]
 \centering

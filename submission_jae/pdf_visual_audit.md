@@ -8,7 +8,7 @@ This file records the final visual inspection performed for the PDF-only Journal
 |---|---|
 | PDF | `manuscript_jae/main.pdf` |
 | Pages | 20 |
-| SHA256 | `1EF690168D161C5662338204B67F8C847CD7C336E8382DF17A4FF5380E474EF5` |
+| SHA256 | `498AA4D2395D4CE233C022D5DA8465550CC3A2CBF35F33B44939627162C73D9E` |
 | Render method | PyMuPDF page rendering |
 | Inspection date | 2026-06-17 |
 
@@ -25,9 +25,9 @@ The following pages were rendered to PNG and visually inspected:
 | 13 | Declarations and references transition | Pass |
 | 16 | Tables 1 and 2 | Pass |
 | 17 | Tables 3 to 6 | Pass |
-| 18 | Figures section and Figure 1 | Pass |
+| 18 | Workflow Figure 1 | Pass |
 | 19 | Figures 2 and 3 | Pass |
-| 20 | Figure 4 and final page | Pass |
+| 20 | Figures 4 and 5, final page | Pass |
 
 ## Findings
 

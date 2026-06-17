@@ -1,6 +1,6 @@
 # Release Notes: JAE Submission Snapshot
 
-Version: `v1.0.5-jae-declaration-headings`
+Version: `v1.0.6-jae-workflow-figure`
 
 Date: 2026-06-16
 
@@ -13,6 +13,7 @@ This release freezes the manuscript-support repository for Journal of Agricultur
 ## Included
 
 - JAE-oriented manuscript source and compiled line-numbered PDF.
+- Method workflow figure summarizing data roles, model stages, pseudo-label filtering, and locked evaluation.
 - Cover letter, editor comments, final submission package map, submission form text, reviewer list, checklist, and artifact checksums.
 - Source code for dataset preparation, training orchestration, pseudo-label filtering, external evaluation, calibration, and reporting.
 - Selected formal CSV/JSON reports used to support manuscript tables and claims.
@@ -52,8 +53,8 @@ Latest validated manuscript PDF:
 
 - File: `manuscript_jae/main.pdf`
 - Pages: 20
-- Size: 477933 bytes
-- SHA256: `1EF690168D161C5662338204B67F8C847CD7C336E8382DF17A4FF5380E474EF5`
+- Size: 745236 bytes
+- SHA256: `498AA4D2395D4CE233C022D5DA8465550CC3A2CBF35F33B44939627162C73D9E`
 
 ## Interpretation Reminder
 
