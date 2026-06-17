@@ -22,7 +22,7 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 | Keywords should fit JAE guidance | Manuscript uses 6 alphabetically ordered keywords | Pass |
 | Author-year citation style should be used | Manuscript uses `natbib` author-year citations | Pass |
 | References should be alphabetized and traceable | Manual bibliography is ordered by first author's last name and displayed in a JAE-like surname-initial/year format with DOI or stable URL where available | Pass |
-| Compulsory declarations should be present | Availability of data and materials, competing interests, funding, acknowledgements, authors' contributions, AI declaration, and supporting-agency statements are included | Pass |
+| Compulsory declarations should be present | Availability of data and materials, competing interests, funding, acknowledgments, authors' contributions, AI declaration, and supporting-agency statements are included | Pass |
 | Suggest at least 3/4 potential reviewers in Comments to the Editor | `submission_jae/editor_comments.md` includes 4 reviewers with affiliation, email, expertise, reason, and conflict check | Pass |
 
 ## Scientific Framing Checked
@@ -43,8 +43,8 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 | Evidence | File or system | Status |
 |---|---|---|
 | Public repository | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod` | Pass |
-| Frozen release | `v1.0.8-jae-submission-bundle` | Pass |
-| GitHub release page | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.8-jae-submission-bundle` | Pass |
+| Frozen release | `v1.0.9-jae-declaration-spelling` | Pass |
+| GitHub release page | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.9-jae-declaration-spelling` | Pass |
 | Citation metadata | `CITATION.cff` | Pass |
 | Release notes | `RELEASE_NOTES_JAE_SUBMISSION.md` | Pass |
 | Reproducibility guide | `REPRODUCIBILITY.md` | Pass |
@@ -63,8 +63,8 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 |---|---|
 | File | `manuscript_jae/main.pdf` |
 | Pages | 20 |
-| Size | 745239 bytes |
-| SHA256 | `A45945DD8A8168E4AAFDDC1C5CA0415C243CC32C353FB94542C9E9C5693A8CA6` |
+| Size | 745242 bytes |
+| SHA256 | `EF95C18A7803A1F5EC406B894BB4BC6A6975326C80964120714BA388859BE1B8` |
 | Blank-like pages | 0 |
 | Image pages | 3 |
 

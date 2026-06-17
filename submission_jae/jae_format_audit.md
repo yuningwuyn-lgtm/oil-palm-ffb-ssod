@@ -18,7 +18,7 @@ Source: Journal of Agricultural Engineering submission page.
 - The journal uses author-year citation style.
 - References should be listed in strict alphabetical order by first author's last name.
 - Tables and figures should be placed at the end of the document.
-- Compulsory declarations use JAE-aligned headings for availability of data and materials, competing interests, funding, acknowledgements, authors' contributions, AI declaration, and supporting-agency statements.
+- Compulsory declarations use JAE-aligned headings for availability of data and materials, competing interests, funding, acknowledgments, authors' contributions, AI declaration, and supporting-agency statements.
 - At least 3-4 potential reviewers should be suggested in the submission comments.
 
 ## Current Manuscript Status

@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "v1.0.8-jae-submission-bundle"
+VERSION = "v1.0.9-jae-declaration-spelling"
 BUNDLE_NAME = f"jae_submission_bundle_{VERSION}"
 DIST = ROOT / "dist"
 BUNDLE_DIR = DIST / BUNDLE_NAME

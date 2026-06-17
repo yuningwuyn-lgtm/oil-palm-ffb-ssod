@@ -46,7 +46,7 @@ The author declares no conflict of interest.
 
 Not applicable. This research received no external funding.
 
-## Acknowledgements
+## Acknowledgments
 
 The author thanks the maintainers of the public oil palm FFB datasets and the open-source computer vision libraries used in this work.
 
