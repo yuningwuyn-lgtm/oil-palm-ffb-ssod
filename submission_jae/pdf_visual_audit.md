@@ -8,7 +8,7 @@ This file records the final visual inspection performed for the PDF-only Journal
 |---|---|
 | PDF | `manuscript_jae/main.pdf` |
 | Pages | 20 |
-| SHA256 | `498AA4D2395D4CE233C022D5DA8465550CC3A2CBF35F33B44939627162C73D9E` |
+| SHA256 | `A45945DD8A8168E4AAFDDC1C5CA0415C243CC32C353FB94542C9E9C5693A8CA6` |
 | Render method | PyMuPDF page rendering |
 | Inspection date | 2026-06-17 |
 

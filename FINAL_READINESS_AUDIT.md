@@ -43,8 +43,8 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 | Evidence | File or system | Status |
 |---|---|---|
 | Public repository | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod` | Pass |
-| Frozen release | `v1.0.6-jae-workflow-figure` | Pass |
-| GitHub release page | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.6-jae-workflow-figure` | Pass |
+| Frozen release | `v1.0.7-jae-style-polish` | Pass |
+| GitHub release page | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.7-jae-style-polish` | Pass |
 | Citation metadata | `CITATION.cff` | Pass |
 | Release notes | `RELEASE_NOTES_JAE_SUBMISSION.md` | Pass |
 | Reproducibility guide | `REPRODUCIBILITY.md` | Pass |
@@ -63,8 +63,8 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 |---|---|
 | File | `manuscript_jae/main.pdf` |
 | Pages | 20 |
-| Size | 745236 bytes |
-| SHA256 | `498AA4D2395D4CE233C022D5DA8465550CC3A2CBF35F33B44939627162C73D9E` |
+| Size | 745239 bytes |
+| SHA256 | `A45945DD8A8168E4AAFDDC1C5CA0415C243CC32C353FB94542C9E9C5693A8CA6` |
 | Blank-like pages | 0 |
 | Image pages | 3 |
 

@@ -12,7 +12,7 @@ Use this file as the submission checklist when uploading to the Journal of Agric
 | Submission form text | `submission_jae/SUBMISSION_FORM_TEXT.md` | Copy title, abstract, keywords, author details, availability statements, funding, and conflict statements into the online form. |
 | Suggested reviewers | `submission_jae/suggested_reviewers_template.csv` | Use as backup if the system asks for reviewer information in separate fields. |
 | Repository link | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod` | Add in the code availability / comments field if requested. |
-| Frozen release link | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.6-jae-workflow-figure` | Add if the system asks for a versioned software/archive link. |
+| Frozen release link | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.7-jae-style-polish` | Add if the system asks for a versioned software/archive link. |
 | Artifact checksum | `submission_jae/ARTIFACT_CHECKSUMS.md` | Use locally to confirm that the uploaded manuscript PDF matches the validated version. |
 | PDF visual audit | `submission_jae/pdf_visual_audit.md` | Local quality-control record; do not upload unless requested. |
 | Frozen release notes | `RELEASE_NOTES_JAE_SUBMISSION.md` | Use to identify the exact repository snapshot submitted for review. |
@@ -39,7 +39,7 @@ Use this file as the submission checklist when uploading to the Journal of Agric
 - PDF visual audit: targeted rendered-page inspection passed.
 - Public code repository is available.
 - GitHub Actions submission-package validation passes on `main`.
-- Frozen release version: `v1.0.6-jae-workflow-figure`.
+- Frozen release version: `v1.0.7-jae-style-polish`.
 - Suggested reviewers: 4.
 
 ## Manual Check During Submission
