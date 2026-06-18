@@ -1,4 +1,4 @@
-# PDF Visual Audit
+﻿# PDF Visual Audit
 
 This file records the final visual inspection performed for the PDF-only Journal of Agricultural Engineering submission package.
 
@@ -8,7 +8,7 @@ This file records the final visual inspection performed for the PDF-only Journal
 |---|---|
 | PDF | `manuscript_jae/main.pdf` |
 | Pages | 20 |
-| SHA256 | `EF95C18A7803A1F5EC406B894BB4BC6A6975326C80964120714BA388859BE1B8` |
+| SHA256 | `B307992E923D5339C1B7C9D7EB8E1C7746D9730AC65F241AAB01ACE13433EF76` |
 | Render method | PyMuPDF page rendering |
 | Inspection date | 2026-06-17 |
 
@@ -26,8 +26,9 @@ The following pages were rendered to PNG and visually inspected:
 | 16 | Tables 1 and 2 | Pass |
 | 17 | Tables 3 to 6 | Pass |
 | 18 | Workflow Figure 1 | Pass |
-| 19 | Figures 2 and 3 | Pass |
-| 20 | Figures 4 and 5, final page | Pass |
+| 19 | Model-flow figure and external metric plot | Pass |
+| 20 | Calibration curve and Model2 confusion matrix | Pass |
+| 21 | Strict SSOD confusion matrix, final page | Pass |
 
 ## Findings
 

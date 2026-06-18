@@ -1,4 +1,4 @@
-# Final Readiness Audit for JAE Submission
+﻿# Final Readiness Audit for JAE Submission
 
 This audit records the evidence that the repository and manuscript package are ready for Journal of Agricultural Engineering submission review.
 
@@ -16,8 +16,9 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 | Text should include numbered lines | `main.tex` uses the `lineno` package and enables `\linenumbers` | Pass |
 | Abstract maximum is 400 words | Validator reports 254 words | Pass |
 | References should not exceed 40 | Validator reports 15 references | Pass |
-| Total number of tables and figures should not exceed 15 | Validator reports 6 tables and 5 figures, total 11 | Pass |
+| Total number of tables and figures should not exceed 15 | Validator reports 6 tables and 6 figures, total 12 | Pass |
 | Tables and figures should be placed at the end | Tables and figures are placed after references and author statements | Pass |
+| Figure and table purpose should be clear to reviewers | `submission_jae/figure_table_reviewer_map.md` maps every table and figure to its manuscript role | Pass |
 | References must be traceable and accessible | References include DOI or stable online source where available | Pass |
 | Keywords should fit JAE guidance | Manuscript uses 6 alphabetically ordered keywords | Pass |
 | Author-year citation style should be used | Manuscript uses `natbib` author-year citations | Pass |
@@ -43,8 +44,8 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 | Evidence | File or system | Status |
 |---|---|---|
 | Public repository | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod` | Pass |
-| Frozen release | `v1.0.9-jae-declaration-spelling` | Pass |
-| GitHub release page | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.9-jae-declaration-spelling` | Pass |
+| Frozen release | `v1.0.10-jae-formula-flow` | Pass |
+| GitHub release page | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.10-jae-formula-flow` | Pass |
 | Citation metadata | `CITATION.cff` | Pass |
 | Release notes | `RELEASE_NOTES_JAE_SUBMISSION.md` | Pass |
 | Reproducibility guide | `REPRODUCIBILITY.md` | Pass |
@@ -63,8 +64,8 @@ URL: `https://www.agroengineering.org/jae/about/submissions`
 |---|---|
 | File | `manuscript_jae/main.pdf` |
 | Pages | 20 |
-| Size | 745242 bytes |
-| SHA256 | `EF95C18A7803A1F5EC406B894BB4BC6A6975326C80964120714BA388859BE1B8` |
+| Size | 1220682 bytes |
+| SHA256 | `B307992E923D5339C1B7C9D7EB8E1C7746D9730AC65F241AAB01ACE13433EF76` |
 | Blank-like pages | 0 |
 | Image pages | 3 |
 

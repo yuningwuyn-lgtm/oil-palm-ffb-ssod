@@ -7,6 +7,7 @@
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{url}
 \usepackage[round,authoryear]{natbib}
 \usepackage[hidelinks]{hyperref}
@@ -61,7 +62,7 @@ The main contributions of this work are as follows. First, a strict evaluation p
 
 The experimental pipeline used three dataset roles, summarized in table~\ref{tab:dataset_roles}. The first was a labeled source-domain oil palm FFB dataset based mainly on ScienceDB/OILPALM-style video-frame imagery \citep{suharjito2023dataset}. This dataset was used to train the source-only supervised baseline and to construct a scene-disjoint split. The second was an external-domain preprocessed FFB dataset, which was used as the main target-domain dataset for cross-domain evaluation and adaptation. The third was an outdoor oil palm ripeness dataset used only for exploratory third-domain zero-shot image-level evaluation \citep{omar2024outdoor}.
 
-The complete workflow is summarized in figure~\ref{fig:framework_workflow}. The protocol separates source-domain training, external-domain adaptation, weakly guided pseudo-label filtering, locked external testing, and third-domain evaluation to avoid mixing training evidence with final evaluation evidence.
+The complete workflow is summarized in figure~\ref{fig:framework_workflow}. The protocol separates source-domain training, external-domain adaptation, weakly guided pseudo-label filtering, locked external testing, and third-domain evaluation to avoid mixing training evidence with final evaluation evidence. The model-level flow from source-only training to quality-controlled strict SSOD is shown in figure~\ref{fig:model_flow}.
 
 The unified class scheme contained six maturity or condition classes (table~\ref{tab:class_scheme}):
 \[
@@ -89,6 +90,21 @@ Four model stages were considered during development, but the formal manuscript 
 
 For each candidate unlabeled or weakly labeled image, the teacher detector generated predictions on the original image and on augmented views. Augmentations included brightness and contrast jitter, horizontal or vertical flips, small rotations, and crop-like perturbations. Predictions from augmented views were mapped back to the original image coordinate system. A pseudo-label candidate was accepted only when boxes from the original and augmented views agreed in class and localization. The localization consistency was measured using intersection-over-union (IoU), and inconsistent predictions were rejected.
 
+Let \(x\) be an input image, \(T_k(\cdot)\) be the \(k\)-th label-preserving augmentation, and \(T_k^{-1}(\cdot)\) be the inverse mapping from the augmented coordinate system back to the original image. A teacher prediction on the original image is denoted by \(p_i=(b_i,c_i,s_i)\), where \(b_i\) is the bounding box, \(c_i\) is the predicted class, and \(s_i\) is the confidence score. The mapped prediction from an augmented view is denoted by \(\tilde{p}_{ik}=(T_k^{-1}(\tilde{b}_{ik}),\tilde{c}_{ik},\tilde{s}_{ik})\). A candidate pseudo-label was considered consistent when
+\[
+\mathbb{I}_{ik} =
+\mathbf{1}\left[
+c_i=\tilde{c}_{ik}
+\ \land\
+\operatorname{IoU}\left(b_i,T_k^{-1}(\tilde{b}_{ik})\right)\ge \gamma
+\right],
+\]
+where \(\gamma\) is the IoU consistency threshold. The multi-view consistency score was then computed as
+\[
+Q_m(p_i)=\frac{1}{K}\sum_{k=1}^{K}\mathbb{I}_{ik},
+\]
+and candidates with insufficient view agreement were rejected before training.
+
 This design follows the general principle of consistency regularization in semi-supervised learning: a reliable object prediction should remain stable under label-preserving image transformations \citep{tarvainen2017mean,sohn2020fixmatch}. In this work, consistency was used as a filtering criterion rather than a fully online teacher-student loss, making the method easier to reproduce with standard YOLOv8 training tools. The approach is related to pseudo-label and consistency-based SSOD methods \citep{sohn2020stac,liu2021unbiased,xu2021softteacher,li2022pseco}, but it is implemented as an offline quality-control layer for an agricultural engineering workflow.
 
 \subsection{Pseudo-Label Quality Score}
@@ -99,11 +115,47 @@ Q = w_c Q_c + w_g Q_g + w_e Q_e + w_f Q_f + w_m Q_m ,
 \]
 where \(Q_c\) is detector confidence, \(Q_g\) is a geometry score, \(Q_e\) is an edge-contact score, \(Q_f\) is weak folder-level class consistency, \(Q_m\) is multi-view consistency, and \(w_c,\ldots,w_m\) are non-negative weights. The geometry score penalized boxes with implausible normalized area or aspect ratio. The edge score penalized boxes touching image boundaries, because such boxes often represent incomplete bunches or truncated detections. The folder-consistency score used class-folder information only as an image-level weak prior, not as bounding-box ground truth. This distinction is important: the method is weak-label-guided SSOD rather than purely unlabeled SSOD.
 
+For a box with width \(w_b\), height \(h_b\), image width \(W\), and image height \(H\), the normalized box area and aspect ratio were defined as
+\[
+a_b=\frac{w_bh_b}{WH}, \qquad r_b=\frac{w_b}{h_b}.
+\]
+The geometry score was represented as an indicator-style plausibility term,
+\[
+Q_g=\mathbf{1}\left[a_{\min}\le a_b\le a_{\max}\right]
+\mathbf{1}\left[r_{\min}\le r_b\le r_{\max}\right],
+\]
+where the limits describe expected FFB box sizes and aspect ratios after resizing. Edge contact was penalized using the minimum normalized distance from the box to the image boundary,
+\[
+d_e=\min\left(\frac{x_1}{W},\frac{y_1}{H},\frac{W-x_2}{W},\frac{H-y_2}{H}\right), \qquad
+Q_e=\min\left(1,\frac{d_e}{\delta}\right),
+\]
+where \((x_1,y_1,x_2,y_2)\) are box coordinates and \(\delta\) is the boundary-margin tolerance. Folder-level weak consistency was defined as
+\[
+Q_f=\mathbf{1}\left[c_i\in \mathcal{C}_{folder}(x)\right],
+\]
+where \(\mathcal{C}_{folder}(x)\) is the set of image-level weak classes inferred from the folder name when available. If no folder prior was available, this term was treated as neutral during scoring rather than as negative evidence.
+
 Pseudo-labels were filtered by both a global quality threshold and class-wise confidence thresholds. Images were then selected under a class-balanced quota so that abundant easy classes did not dominate the pseudo-labeled training set.
 
 \subsection{Dynamic Class-Wise Thresholds}
 
 Class-wise thresholds were updated using validation statistics. Classes with weaker validation performance or higher confusion risk were assigned stricter confidence thresholds, while easier classes could use lower thresholds. This mechanism was intended to reduce noisy pseudo-labels for visually difficult categories, especially under-ripe and unripe bunches, which often share color and texture cues.
+
+For class \(c\), the adaptive threshold was written as
+\[
+\tau_c=\operatorname{clip}\left(\tau_0+\lambda(1-\mathrm{AP}_c),\tau_{\min},\tau_{\max}\right),
+\]
+where \(\tau_0\) is the base confidence threshold, \(\mathrm{AP}_c\) is the class-wise validation average precision, \(\lambda\) controls the penalty for difficult classes, and \(\tau_{\min}\) and \(\tau_{\max}\) bound the threshold range. A pseudo-label candidate for class \(c_i\) was accepted only if
+\[
+s_i\ge \tau_{c_i}, \qquad Q(p_i)\ge \eta, \qquad Q_m(p_i)\ge \mu,
+\]
+where \(\eta\) is the minimum composite quality score and \(\mu\) is the minimum multi-view consistency score.
+
+To reduce class imbalance during self-training, accepted pseudo-labeled images were selected under a per-class quota:
+\[
+|\mathcal{P}^{(t)}_c|\le N_c^{\max},
+\]
+where \(\mathcal{P}^{(t)}_c\) is the set of pseudo-labeled samples accepted for class \(c\) at self-training iteration \(t\), and \(N_c^{\max}\) is the maximum number of pseudo-labeled images allowed for that class.
 
 For deployment-style reporting, class-wise calibrated thresholds were also selected for a high-precision operating point. This is appropriate for maturity grading scenarios where a conservative detector may be preferred over a detector that maximizes recall at the cost of many false positives.
 
@@ -120,7 +172,14 @@ The following evaluation layers were used:
     \item \textbf{Third-domain zero-shot evaluation}: evaluates image-level class prediction on an outdoor oil palm dataset that was not used for training.
 \end{enumerate}
 
-The primary detection metrics were precision, recall, F1-score, mAP@0.5, and mAP@0.5:0.95. The third-domain experiment was reported separately as image-level top-1 accuracy and macro F1-score, and should not be compared directly with detection mAP.
+The primary detection metrics were precision, recall, F1-score, mAP@0.5, and mAP@0.5:0.95. Precision, recall, and F1-score were computed as
+\[
+\mathrm{Precision}=\frac{TP}{TP+FP}, \qquad
+\mathrm{Recall}=\frac{TP}{TP+FN}, \qquad
+F1=\frac{2\cdot \mathrm{Precision}\cdot \mathrm{Recall}}
+{\mathrm{Precision}+\mathrm{Recall}}.
+\]
+The third-domain experiment was reported separately as image-level top-1 accuracy and macro F1-score, and should not be compared directly with detection mAP.
 
 \section{Results}
 
@@ -373,6 +432,13 @@ Strict SSOD & 0.6657 & 0.4918 & 48 & 5 \\
 \includegraphics[width=\textwidth]{figures/fig_framework_workflow.png}
 \caption{Overview of the proposed quality-controlled cross-domain SSOD workflow. Data sources, protocol controls, model stages, and evaluation targets are separated to preserve the distinction between source-only transfer, target-domain adaptation, and precision-first strict SSOD.}
 \label{fig:framework_workflow}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_model_flow.png}
+\caption{Model-level flow of the proposed quality-controlled SSOD pipeline. Model 0 is used to demonstrate source-to-external domain shift, Model 2 Balanced is used as the main fair adaptation baseline, and the strict SSOD student is trained only after multi-view pseudo-label consistency, composite quality scoring, dynamic class-wise thresholds, and balanced pseudo-label selection.}
+\label{fig:model_flow}
 \end{figure}
 
 \begin{figure}[h]

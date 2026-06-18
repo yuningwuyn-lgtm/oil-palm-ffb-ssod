@@ -1,4 +1,4 @@
-"""Create a clean local JAE submission bundle.
+﻿"""Create a clean local JAE submission bundle.
 
 The bundle contains only files useful during online submission or editorial
 review. It deliberately excludes datasets, trained weights, generated training
@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "v1.0.9-jae-declaration-spelling"
+VERSION = "v1.0.10-jae-formula-flow"
 BUNDLE_NAME = f"jae_submission_bundle_{VERSION}"
 DIST = ROOT / "dist"
 BUNDLE_DIR = DIST / BUNDLE_NAME
@@ -31,6 +31,7 @@ FILES = [
     ("submission_jae/FINAL_SUBMISSION_PACKAGE.md", "03_quality_control/FINAL_SUBMISSION_PACKAGE.md"),
     ("submission_jae/submission_checklist.md", "03_quality_control/submission_checklist.md"),
     ("submission_jae/pdf_visual_audit.md", "03_quality_control/pdf_visual_audit.md"),
+    ("submission_jae/figure_table_reviewer_map.md", "03_quality_control/figure_table_reviewer_map.md"),
     ("FINAL_READINESS_AUDIT.md", "03_quality_control/FINAL_READINESS_AUDIT.md"),
     ("RELEASE_NOTES_JAE_SUBMISSION.md", "03_quality_control/RELEASE_NOTES_JAE_SUBMISSION.md"),
     ("REPRODUCIBILITY.md", "04_reproducibility/REPRODUCIBILITY.md"),

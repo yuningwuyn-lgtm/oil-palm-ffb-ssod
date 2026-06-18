@@ -1,4 +1,4 @@
-"""Validate the JAE submission package without running model training.
+﻿"""Validate the JAE submission package without running model training.
 
 The checks are intentionally lightweight so they can run locally and in GitHub
 Actions. They verify manuscript structure, citation consistency, reviewer
@@ -45,6 +45,7 @@ def check_required_files() -> None:
         "submission_jae/FINAL_SUBMISSION_PACKAGE.md",
         "submission_jae/ARTIFACT_CHECKSUMS.md",
         "submission_jae/pdf_visual_audit.md",
+        "submission_jae/figure_table_reviewer_map.md",
         "submission_jae/submission_checklist.md",
         "submission_jae/suggested_reviewers_template.csv",
         "submission_jae/jae_format_audit.md",
@@ -58,7 +59,7 @@ def check_required_files() -> None:
     citation_text = read_text(ROOT / "CITATION.cff")
     release_text = read_text(ROOT / "RELEASE_NOTES_JAE_SUBMISSION.md")
     for text_name, text in [("CITATION.cff", citation_text), ("RELEASE_NOTES_JAE_SUBMISSION.md", release_text)]:
-        if "1.0.9-jae-declaration-spelling" not in text:
+        if "1.0.10-jae-formula-flow" not in text:
             fail(f"{text_name} does not include the frozen submission version")
 
 
@@ -205,16 +206,26 @@ def check_submission_files() -> dict[str, object]:
         "editor_comments.md",
         "SUBMISSION_FORM_TEXT.md",
         "ARTIFACT_CHECKSUMS.md",
-        "v1.0.9-jae-declaration-spelling",
+        "figure_table_reviewer_map.md",
+        "v1.0.10-jae-formula-flow",
     ]:
         if token not in final_package:
             fail(f"Final package map missing token: {token}")
+    reviewer_map = read_text(ROOT / "submission_jae/figure_table_reviewer_map.md")
+    for token in [
+        "Model 0 is included as domain-shift evidence",
+        "Model 2 Balanced is the main fair baseline",
+        "Strict SSOD is presented as a high-precision operating point",
+        "Under-ripe remains the main limitation",
+    ]:
+        if token not in reviewer_map:
+            fail(f"Reviewer figure/table map missing guardrail: {token}")
     cover_letter = read_text(ROOT / "submission_jae/cover_letter.md")
     editor_comments = read_text(ROOT / "submission_jae/editor_comments.md")
     for text_name, text in [("cover_letter.md", cover_letter), ("editor_comments.md", editor_comments)]:
         if "https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod" not in text:
             fail(f"{text_name} missing public repository URL")
-        if "v1.0.9-jae-declaration-spelling" not in text:
+        if "v1.0.10-jae-formula-flow" not in text:
             fail(f"{text_name} missing frozen release URL")
 
     form_text = read_text(ROOT / "submission_jae/SUBMISSION_FORM_TEXT.md")

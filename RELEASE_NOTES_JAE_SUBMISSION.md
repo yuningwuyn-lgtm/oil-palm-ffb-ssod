@@ -1,6 +1,6 @@
-# Release Notes: JAE Submission Snapshot
+﻿# Release Notes: JAE Submission Snapshot
 
-Version: `v1.0.9-jae-declaration-spelling`
+Version: `v1.0.10-jae-formula-flow`
 
 Date: 2026-06-16
 
@@ -56,8 +56,8 @@ Latest validated manuscript PDF:
 
 - File: `manuscript_jae/main.pdf`
 - Pages: 20
-- Size: 745242 bytes
-- SHA256: `EF95C18A7803A1F5EC406B894BB4BC6A6975326C80964120714BA388859BE1B8`
+- Size: 1220682 bytes
+- SHA256: `B307992E923D5339C1B7C9D7EB8E1C7746D9730AC65F241AAB01ACE13433EF76`
 
 ## Interpretation Reminder
 

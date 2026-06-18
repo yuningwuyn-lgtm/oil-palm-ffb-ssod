@@ -1,4 +1,4 @@
-# Final JAE Submission Package
+﻿# Final JAE Submission Package
 
 Use this file as the submission checklist when uploading to the Journal of Agricultural Engineering online system.
 
@@ -12,9 +12,10 @@ Use this file as the submission checklist when uploading to the Journal of Agric
 | Submission form text | `submission_jae/SUBMISSION_FORM_TEXT.md` | Copy title, abstract, keywords, author details, availability statements, funding, and conflict statements into the online form. |
 | Suggested reviewers | `submission_jae/suggested_reviewers_template.csv` | Use as backup if the system asks for reviewer information in separate fields. |
 | Repository link | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod` | Add in the code availability / comments field if requested. |
-| Frozen release link | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.9-jae-declaration-spelling` | Add if the system asks for a versioned software/archive link. |
+| Frozen release link | `https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.10-jae-formula-flow` | Add if the system asks for a versioned software/archive link. |
 | Artifact checksum | `submission_jae/ARTIFACT_CHECKSUMS.md` | Use locally to confirm that the uploaded manuscript PDF matches the validated version. |
 | PDF visual audit | `submission_jae/pdf_visual_audit.md` | Local quality-control record; do not upload unless requested. |
+| Figure/table reviewer map | `submission_jae/figure_table_reviewer_map.md` | Local quality-control record explaining the reviewer-facing role of each table and figure; upload only if requested. |
 | Frozen release notes | `RELEASE_NOTES_JAE_SUBMISSION.md` | Use to identify the exact repository snapshot submitted for review. |
 
 ## Optional Local Bundle
@@ -25,7 +26,7 @@ Generate a clean local submission bundle before uploading:
 python scripts/create_submission_bundle.py
 ```
 
-The command writes `dist/jae_submission_bundle_v1.0.9-jae-declaration-spelling/` and a matching `.zip` archive. The bundle contains the manuscript PDF, cover letter, editor comments, online-form text, reviewer template, checksums, and reproducibility support files only. It excludes raw datasets, model weights, training runs, cache files, and local authentication artifacts.
+The command writes `dist/jae_submission_bundle_v1.0.10-jae-formula-flow/` and a matching `.zip` archive. The bundle contains the manuscript PDF, cover letter, editor comments, online-form text, reviewer template, checksums, figure/table reviewer map, and reproducibility support files only. It excludes raw datasets, model weights, training runs, cache files, and local authentication artifacts.
 
 ## Main Manuscript Claims to Preserve
 
@@ -39,17 +40,17 @@ The command writes `dist/jae_submission_bundle_v1.0.9-jae-declaration-spelling/`
 ## Last Verified Format Status
 
 - Article type: Original Article.
-- Manuscript file: one 20-page PDF containing full text, tables, and figures.
+- Manuscript file: one 23-page PDF containing full text, tables, and figures.
 - Abstract: 254 words, unstructured.
 - References: 15.
 - Tables: 6.
-- Figures: 5.
-- Total tables and figures: 11.
+- Figures: 6.
+- Total tables and figures: 12.
 - Tables and figures are placed at the end.
 - PDF visual audit: targeted rendered-page inspection passed.
 - Public code repository is available.
 - GitHub Actions submission-package validation passes on `main`.
-- Frozen release version: `v1.0.9-jae-declaration-spelling`.
+- Frozen release version: `v1.0.10-jae-formula-flow`.
 - Suggested reviewers: 4.
 
 ## Manual Check During Submission

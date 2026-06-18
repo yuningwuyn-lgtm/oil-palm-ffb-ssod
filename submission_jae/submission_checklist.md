@@ -16,6 +16,7 @@ This checklist is based on the Journal of Agricultural Engineering submission pa
 - [x] References are fewer than 40.
 - [x] Total number of tables and figures is fewer than 15.
 - [x] Tables and figures are placed at the end of the manuscript.
+- [x] A reviewer-facing figure/table map has been prepared to clarify the role of each visual artifact.
 - [x] Keywords are limited to 3-6 items and arranged alphabetically.
 - [x] Author-year citation style is used in the manuscript text.
 - [x] References are arranged alphabetically by first author's last name.

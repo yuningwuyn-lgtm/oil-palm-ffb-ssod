@@ -1,4 +1,4 @@
-# Submission Artifact Checksums
+﻿# Submission Artifact Checksums
 
 Use these checksums to confirm that the uploaded files match the validated repository version.
 
@@ -6,7 +6,7 @@ Use these checksums to confirm that the uploaded files match the validated repos
 
 | File | Size bytes | SHA256 |
 |---|---:|---|
-| `manuscript_jae/main.pdf` | 745242 | `EF95C18A7803A1F5EC406B894BB4BC6A6975326C80964120714BA388859BE1B8` |
+| `manuscript_jae/main.pdf` | 1220682 | `B307992E923D5339C1B7C9D7EB8E1C7746D9730AC65F241AAB01ACE13433EF76` |
 
 ## Verification Command
 

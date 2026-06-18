@@ -1,4 +1,4 @@
-# Comments to the Editor
+﻿# Comments to the Editor
 
 Dear Editor,
 
@@ -18,7 +18,7 @@ https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod
 
 The frozen submission-support snapshot is:
 
-https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.9-jae-declaration-spelling
+https://github.com/yuningwuyn-lgtm/oil-palm-ffb-ssod/releases/tag/v1.0.10-jae-formula-flow
 
 Raw third-party datasets and trained weights are not redistributed because their reuse and redistribution depend on the original data providers' license and access conditions.
 
